@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: "#FB340A",
         color: theme.palette.common.white,
     },
     body: {
@@ -53,10 +53,10 @@ export default function CustomizedTables() {
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>Nombre</StyledTableCell>
+                        <StyledTableCell >Nombre&nbsp;</StyledTableCell>
                         <StyledTableCell align="right">Sigla&nbsp;</StyledTableCell>
                         <StyledTableCell align="right">Creditos&nbsp;</StyledTableCell>
-                        <StyledTableCell align="right">Descripcion&nbsp;</StyledTableCell>
+                        <StyledTableCell align="right">Descripcion</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
