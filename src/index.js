@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Checkout from './components/Checkout';
 import Eventos from './components/Eventos'
 import * as serviceWorker from './serviceWorker';
 import VistaCal from './vistaCal';
 import SignUp from "./signUp";
 
-ReactDOM.render(<Eventos />, document.getElementById('root'));
+
+ReactDOM.render(<App/>, document.getElementById('root'));
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
