@@ -11,6 +11,8 @@ import SignUp from './components/SignUp';
 import Album from './components/noticeView';
 import Checkout from './components/Checkout';
 import './App.css';
+import { Redirect } from 'react-router-dom';
+
 
 function App() {
   return (
