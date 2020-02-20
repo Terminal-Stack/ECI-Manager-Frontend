@@ -9,6 +9,7 @@ import SemesterGrades from './components/SemesterGrades';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Album from './components/noticeView';
+import Checkout from './components/Checkout';
 import './App.css';
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/grades">
           <SemesterGrades />
+        </Route>
+        <Route path="/checkout">
+          <Checkout />
         </Route>
       </Switch>
     </Router>
