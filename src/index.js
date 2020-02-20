@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import Calendar from './Calendar'
 import * as serviceWorker from './serviceWorker';
+import VistaCal from './vistaCal';
+import SignUp from "./signUp";
 
 ReactDOM.render(<Calendar />, document.getElementById('root'));
 
