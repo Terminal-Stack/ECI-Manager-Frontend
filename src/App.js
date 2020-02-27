@@ -11,6 +11,7 @@ import SignUp from './components/SignUp';
 import Album from './components/noticeView';
 import Checkout from './components/Checkout';
 import Electivas from './components/VistaElectivas';
+import ListaServicios from './components/ListaServicios';
 import './App.css';
 import { Redirect } from 'react-router-dom';
 
@@ -37,6 +38,10 @@ function App() {
         <Route path="/electivas">
           <Electivas />
         </Route>
+        <Route path="/listaServicios">
+          <ListaServicios/>
+        </Route>
+        
       </Switch>
     </Router>
   );
