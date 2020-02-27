@@ -46,7 +46,7 @@ export default function CustomizedTables() {
     const classes = useStyles();
 
     return (
-        <div>
+        
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
@@ -57,7 +57,7 @@ export default function CustomizedTables() {
                             <StyledTableCell align="right">Descripcion</StyledTableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>
+                     <TableBody>
                         {rows.map(row => (
                             <StyledTableRow key={row.name}>
                                 <StyledTableCell component="th" scope="row">
@@ -71,6 +71,6 @@ export default function CustomizedTables() {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </div>
+        
     );
 }
