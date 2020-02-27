@@ -78,7 +78,7 @@ export default function ListaServicios() {
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary" onClick={this.handleClick}>
+                                    <Button variant="contained" color="primary">
                                         certificado de notas
                                     </Button>
                                 </Grid>
