@@ -55,11 +55,12 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-
-const flag=false;
-export default function ListaServicios() {
+export default function ListaServicios(props) {
     
-    
+    const onClick = () => {
+        console.log(props.history);
+        props.history.push("/checkout");
+      };
     const classes = useStyles();
     return (
         <React.Fragment>
@@ -78,12 +79,12 @@ export default function ListaServicios() {
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary">
+                                    <Button onClick={onClick} variant="contained" color="primary">
                                         certificado de notas
                                     </Button>
                                 </Grid>
                                 <Grid item>
-                                    <Button variant="outlined" color="primary">
+                                    <Button onClick={onClick} variant="outlined" color="primary">
                                         certificado de estudio
                                     </Button>
                                 </Grid>
@@ -96,7 +97,7 @@ export default function ListaServicios() {
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary">
+                                    <Button onClick={onClick} variant="contained" color="primary">
                                         documento de devolucion
                                     </Button>
                                 </Grid>

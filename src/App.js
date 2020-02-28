@@ -38,8 +38,8 @@ function App() {
         <Route path="/electivas">
           <Electivas />
         </Route>
-        <Route path="/listaServicios">
-          <ListaServicios/>
+        <Route path="/listaServicios"
+          exac component={ListaServicios}>
         </Route>
         
       </Switch>
