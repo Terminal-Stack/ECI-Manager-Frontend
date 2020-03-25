@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import { Redirect } from "react-router-dom";
+import { Redirect } from 'react-router';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -59,7 +59,23 @@ const useStyles = makeStyles(theme => ({
 const flag=false;
 export default function ListaServicios() {
     
-    
+    const [state, setState] = React.useState({
+        noticias : false,
+        consulnotas: false,
+        certinotas: false
+      });
+    function handleClick (e) {
+        e.preventDefault();
+        window.location.replace("/news"); 
+    }
+    function handleClick2 (e) {
+        e.preventDefault();
+        window.location.replace("/grades"); 
+    }
+    function handleClick3 (e) {
+        e.preventDefault();
+        window.location.replace("/checkout"); 
+    }
     const classes = useStyles();
     return (
         <React.Fragment>
@@ -72,19 +88,15 @@ export default function ListaServicios() {
                 </Toolbar>
             </AppBar>
             <main>
-                {/* Hero unit */}
+                
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
+                                
                                 <Grid item>
-                                    <Button variant="contained" color="primary">
-                                        certificado de notas
-                                    </Button>
-                                </Grid>
-                                <Grid item>
-                                    <Button variant="outlined" color="primary">
-                                        certificado de estudio
+                                    <Button variant="contained" color="primary" onClick={handleClick}>
+                                        noticias
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -96,13 +108,21 @@ export default function ListaServicios() {
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary">
-                                        documento de devolucion
+                                    <Button variant="contained" color="primary" onClick={handleClick2}>
+                                        consultar notas
                                     </Button>
                                 </Grid>
+                            </Grid>
+                        </div>
+                    </Container>
+                </div>
+                <div className={classes.heroContent}>
+                    <Container maxWidth="sm">
+                        <div className={classes.heroButtons}>
+                            <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="outlined" color="primary">
-                                        log out
+                                    <Button variant="contained" color="primary" onClick={handleClick3}>
+                                       certificado de estudio
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -111,17 +131,8 @@ export default function ListaServicios() {
                 </div>
                 
             </main>
-            {/* Footer */}
-            <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
-                </Typography>
-                <Copyright />
-            </footer>
-            {/* End footer */}
+            
+            <Copyright />
         </React.Fragment>
     );
 }
