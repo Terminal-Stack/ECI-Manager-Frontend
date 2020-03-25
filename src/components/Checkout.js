@@ -90,9 +90,22 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-
+  function handleVolver(e) {
+    e.preventDefault();
+    window.location.replace("/listaServicios");
+  }
   return (
     <React.Fragment>
+      <AppBar position="relative" color='secondary'>
+        <Toolbar >
+          <Typography variant="h6" color="inherit" noWrap>
+            Notas academicas
+                    </Typography>
+        </Toolbar>
+        <Button variant="contained" color="secondary" onClick={handleVolver}  >
+          volver
+                </Button>
+      </AppBar>
       <CssBaseline />
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>

@@ -56,25 +56,31 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const flag=false;
+const flag = false;
 export default function ListaServicios() {
+
     
     const [state, setState] = React.useState({
-        noticias : false,
+        noticias: false,
         consulnotas: false,
-        certinotas: false
-      });
-    function handleClick (e) {
+        certinotas: false,
+        logout : false
+    });
+    function handleClick(e) {
         e.preventDefault();
-        window.location.replace("/news"); 
+        window.location.replace("/news");
     }
-    function handleClick2 (e) {
+    function handleClick2(e) {
         e.preventDefault();
-        window.location.replace("/grades"); 
+        window.location.replace("/grades");
     }
-    function handleClick3 (e) {
+    function handleClick3(e) {
         e.preventDefault();
-        window.location.replace("/checkout"); 
+        window.location.replace("/checkout");
+    }
+    function handleLog(e) {
+        e.preventDefault();
+        window.location.replace("/login");
     }
     const classes = useStyles();
     return (
@@ -86,14 +92,18 @@ export default function ListaServicios() {
                         Lista de servicios
                     </Typography>
                 </Toolbar>
+                <Button variant="contained" color="secondary" onClick={handleLog}  >
+                    Desconectarse
+                </Button>
             </AppBar>
             <main>
-                
+
+
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
-                                
+
                                 <Grid item>
                                     <Button variant="contained" color="secondary" onClick={handleClick}>
                                         noticias
@@ -122,16 +132,16 @@ export default function ListaServicios() {
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="secondary" onClick={handleClick3}>
-                                       certificado de estudio
+                                        certificado de estudio
                                     </Button>
                                 </Grid>
                             </Grid>
                         </div>
                     </Container>
                 </div>
-                
+
             </main>
-            
+
             <Copyright />
         </React.Fragment>
     );
