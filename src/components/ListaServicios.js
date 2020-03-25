@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     footer: {
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: '#E82F08',
         padding: theme.spacing(6),
     },
 }));
@@ -80,8 +80,8 @@ export default function ListaServicios() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="relative">
-                <Toolbar>
+            <AppBar position="relative" color='secondary'>
+                <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
                         Lista de servicios
                     </Typography>
@@ -95,7 +95,7 @@ export default function ListaServicios() {
                             <Grid container spacing={2} justify="center">
                                 
                                 <Grid item>
-                                    <Button variant="contained" color="primary" onClick={handleClick}>
+                                    <Button variant="contained" color="secondary" onClick={handleClick}>
                                         noticias
                                     </Button>
                                 </Grid>
@@ -108,7 +108,7 @@ export default function ListaServicios() {
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary" onClick={handleClick2}>
+                                    <Button variant="contained" color="secondary" onClick={handleClick2}>
                                         consultar notas
                                     </Button>
                                 </Grid>
@@ -121,7 +121,7 @@ export default function ListaServicios() {
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary" onClick={handleClick3}>
+                                    <Button variant="contained" color="secondary" onClick={handleClick3}>
                                        certificado de estudio
                                     </Button>
                                 </Grid>
