@@ -78,6 +78,10 @@ export default function ListaServicios() {
         e.preventDefault();
         window.location.replace("/checkout");
     }
+    function handleClick4(e) {
+        e.preventDefault();
+        window.location.replace("/electivas");
+    }
     function handleLog(e) {
         e.preventDefault();
         window.location.replace("/login");
@@ -112,8 +116,8 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                </div>
-                <div className={classes.heroContent}>
+                
+                
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
@@ -125,8 +129,21 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                </div>
-                <div className={classes.heroContent}>
+                
+                
+                    <Container maxWidth="sm">
+                        <div className={classes.heroButtons}>
+                            <Grid container spacing={2} justify="center">
+                                <Grid item>
+                                    <Button variant="contained" color="secondary" onClick={handleClick4}>
+                                        Lista de electivas
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </Container>
+                
+                
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
@@ -138,8 +155,8 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                </div>
-
+                
+                    </div>
             </main>
 
             <Copyright />
