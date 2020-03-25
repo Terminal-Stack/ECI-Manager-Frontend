@@ -7,6 +7,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -34,9 +38,29 @@ const rows = [
 
 export default function SemesterGrades() {
   const classes = useStyles();
-
+  function handleLog(e) {
+    e.preventDefault();
+    window.location.replace("/login");
+  }
+  function handleVolver(e) {
+    e.preventDefault();
+    window.location.replace("/listaServicios");
+  }
   return (
     <TableContainer component={Paper}>
+      <AppBar position="relative" color='secondary'>
+        <Toolbar >
+          <Typography variant="h6" color="inherit" noWrap>
+            Notas academicas
+                    </Typography>
+        </Toolbar>
+        <Button variant="contained" color="secondary" onClick={handleLog}  >
+          Desconectarse
+                </Button>
+        <Button variant="contained" color="secondary" onClick={handleVolver}  >
+          volver
+                </Button>
+      </AppBar>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -62,5 +86,6 @@ export default function SemesterGrades() {
         </TableBody>
       </Table>
     </TableContainer>
+
   );
 }
