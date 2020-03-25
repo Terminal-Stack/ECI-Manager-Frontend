@@ -20,6 +20,7 @@ function App() {
   return (
     <Router>
       <Switch>
+    
         <Route path="/news">
           <Album />
         </Route>
