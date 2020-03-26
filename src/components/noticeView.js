@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import CargaDatos from '../CargaDatos';
+
 
 function Copyright() {
     return (
@@ -68,13 +70,17 @@ export default function Album() {
         height: 400,
     };
     const classes = useStyles();
-
+    function traerNoticias(){
+        console.log('imprime');
+        console.log(CargaDatos.getAllNews());
+    };
     return (
         <React.Fragment>
             <CssBaseline />
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
-
+                
+                <Button onClick={traerNoticias}> prueba </Button>
                     <Typography variant="h6" color="inherit" noWrap>
                         Sección Noticias
                     </Typography>

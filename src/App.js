@@ -13,7 +13,6 @@ import Checkout from './components/Checkout';
 import Electivas from './components/VistaElectivas';
 import ListaServicios from './components/ListaServicios';
 import './App.css';
-import { Redirect } from 'react-router-dom';
 
 
 function App() {
