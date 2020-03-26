@@ -12,6 +12,7 @@ import Album from './components/noticeView';
 import Checkout from './components/Checkout';
 import Electivas from './components/VistaElectivas';
 import ListaServicios from './components/ListaServicios';
+import Calendar from './components/Calendar'
 import './App.css';
 
 
@@ -19,9 +20,11 @@ function App() {
   return (
     <Router>
       <Switch>
-    
         <Route path="/news">
           <Album />
+        </Route>
+        <Route path="/calendar">
+          <Calendar />
         </Route>
         <Route path="/login">
           <Login />
