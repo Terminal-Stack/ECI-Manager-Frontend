@@ -49,6 +49,10 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
     const classes = useStyles();
+    function handleLog(e) {
+        e.preventDefault();
+        window.location.replace("/login");
+    }
     function handleVolver(e) {
         e.preventDefault();
         window.location.replace("/listaServicios");
@@ -91,6 +95,6 @@ export default function CustomizedTables() {
                     </TableBody>
                 </Table>
             </TableContainer>
-        
+
     );
 }

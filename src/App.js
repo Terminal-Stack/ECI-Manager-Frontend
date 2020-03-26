@@ -13,8 +13,8 @@ import Checkout from './components/Checkout';
 import Electivas from './components/VistaElectivas';
 import ListaServicios from './components/ListaServicios';
 import ConsultaNotas from './components/ConsultaNotas';
+import Calendar from './components/Calendar'
 import './App.css';
-import { Redirect } from 'react-router-dom';
 
 
 function App() {
@@ -23,6 +23,9 @@ function App() {
       <Switch>
         <Route path="/news">
           <Album />
+        </Route>
+        <Route path="/calendar">
+          <Calendar />
         </Route>
         <Route path="/login">
           <Login />

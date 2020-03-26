@@ -70,6 +70,10 @@ export default function ListaServicios() {
         e.preventDefault();
         window.location.replace("/news");
     }
+    function handleClick5(e) {
+        e.preventDefault();
+        window.location.replace("/calendar");
+    }
     function handleClick2(e) {
         e.preventDefault();
         window.location.replace("/consultaNotas");
@@ -116,8 +120,8 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                </div>
-                <div className={classes.heroContent}>
+                
+                
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
@@ -129,8 +133,21 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                </div>
-                <div className={classes.heroContent}>
+                
+                
+                    <Container maxWidth="sm">
+                        <div className={classes.heroButtons}>
+                            <Grid container spacing={2} justify="center">
+                                <Grid item>
+                                    <Button variant="contained" color="secondary" onClick={handleClick4}>
+                                        Lista de electivas
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </Container>
+                
+                
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
@@ -155,8 +172,20 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                </div>
 
+                    <Container maxWidth="sm">
+                        <div className={classes.heroButtons}>
+                            <Grid container spacing={2} justify="center">
+                                <Grid item>
+                                    <Button variant="contained" color="secondary" onClick={handleClick5} >
+                                        calendario academico
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </Container>
+                
+                    </div>
             </main>
 
             <Copyright />

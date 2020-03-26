@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-var cargaDatos = (function () {
+var CargaDatos = (function () {
 
     var getNews = function () {
 
@@ -12,6 +12,7 @@ var cargaDatos = (function () {
             },
             function () {
                 return null;
+                
             }
         );
 
@@ -43,4 +44,4 @@ var cargaDatos = (function () {
         }
     }
 })();
-export default cargaDatos;
+export default CargaDatos;
