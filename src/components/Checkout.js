@@ -18,8 +18,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://www.escuelaing.edu.co/es/">
+        Escuela Colombiana de Ingeniería Julio Garavito
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -99,21 +99,15 @@ export default function Checkout() {
       <AppBar position="relative" color='secondary'>
         <Toolbar >
           <Typography variant="h6" color="inherit" noWrap>
-            Notas academicas
-                    </Typography>
+            Certificados
+          </Typography>
         </Toolbar>
         <Button variant="contained" color="secondary" onClick={handleVolver}  >
           volver
                 </Button>
       </AppBar>
       <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Escuela Colombiana de ingenieria Julio Garavito.
-          </Typography>
-        </Toolbar>
-      </AppBar>
+
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">

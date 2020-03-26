@@ -14,8 +14,8 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Escuela Colombiana de Ingenieria Julio Garavito
+            <Link color="inherit" href="https://www.escuelaing.edu.co/es/">
+                Escuela Colombiana de Ingeniería Julio Garavito
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(8, 0, 6),
     },
     heroButtons: {
-        marginTop: theme.spacing(4),
+        marginTop: theme.spacing(2.5),
     },
     cardGrid: {
         paddingTop: theme.spacing(8),
@@ -76,7 +76,7 @@ export default function ListaServicios() {
     }
     function handleClick2(e) {
         e.preventDefault();
-        window.location.replace("/grades");
+        window.location.replace("/consultaNotas");
     }
     function handleClick3(e) {
         e.preventDefault();
@@ -97,7 +97,7 @@ export default function ListaServicios() {
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
-                        Lista de servicios
+                        Lista de servicios Escuela Colombiana de Ingeniería Julio Garavito.
                     </Typography>
                 </Toolbar>
                 <Button variant="contained" color="secondary" onClick={handleLog}  >
@@ -110,7 +110,7 @@ export default function ListaServicios() {
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
-                            <Grid container spacing={2} justify="center">
+                            <Grid container spacing={1.5} justify="center">
 
                                 <Grid item>
                                     <Button variant="contained" color="secondary" onClick={handleClick}>
@@ -124,7 +124,7 @@ export default function ListaServicios() {
                 
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
-                            <Grid container spacing={2} justify="center">
+                            <Grid container spacing={1.5} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="secondary" onClick={handleClick2}>
                                         consultar notas
@@ -150,7 +150,20 @@ export default function ListaServicios() {
                 
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
-                            <Grid container spacing={2} justify="center">
+                            <Grid container spacing={1.5} justify="center">
+                                <Grid item>
+                                    <Button variant="contained" color="secondary" onClick={handleClick4}>
+                                        materias electivas
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </Container>
+                </div>
+                <div className={classes.heroContent}>
+                    <Container maxWidth="sm">
+                        <div className={classes.heroButtons}>
+                            <Grid container spacing={1.5} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="secondary" onClick={handleClick3}>
                                         certificado de estudio

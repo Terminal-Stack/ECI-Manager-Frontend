@@ -12,6 +12,7 @@ import Album from './components/noticeView';
 import Checkout from './components/Checkout';
 import Electivas from './components/VistaElectivas';
 import ListaServicios from './components/ListaServicios';
+import ConsultaNotas from './components/ConsultaNotas';
 import Calendar from './components/Calendar'
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';

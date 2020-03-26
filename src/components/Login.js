@@ -12,6 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Toolbar from "@material-ui/core/Toolbar";
+import AppBar from "@material-ui/core/AppBar";
 
 import AuthenticationService from '../_services/AuthenticationService';
 
