@@ -70,6 +70,10 @@ export default function ListaServicios() {
         e.preventDefault();
         window.location.replace("/news");
     }
+    function handleClick5(e) {
+        e.preventDefault();
+        window.location.replace("/calendar");
+    }
     function handleClick2(e) {
         e.preventDefault();
         window.location.replace("/grades");
@@ -150,6 +154,18 @@ export default function ListaServicios() {
                                 <Grid item>
                                     <Button variant="contained" color="secondary" onClick={handleClick3}>
                                         certificado de estudio
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </Container>
+
+                    <Container maxWidth="sm">
+                        <div className={classes.heroButtons}>
+                            <Grid container spacing={2} justify="center">
+                                <Grid item>
+                                    <Button variant="contained" color="secondary" onClick={handleClick5} >
+                                        calendario academico
                                     </Button>
                                 </Grid>
                             </Grid>

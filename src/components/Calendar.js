@@ -15,6 +15,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import CargaDatos from '../CargaDatos';
+import Certificaciones from './Certificaciones.PNG';
 
 
 function Copyright() {
@@ -53,6 +54,7 @@ const useStyles = makeStyles(theme => ({
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
+        width: '300%',
     },
     cardMedia: {
         paddingTop: '56.25%', // 16:9
@@ -66,9 +68,10 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1];
 
 export default function Album() {
+    
     const myScrollbar = {
         width: 400,
         height: 400,
@@ -83,7 +86,9 @@ export default function Album() {
         window.location.replace("/login");
       }
     return (
+        
         <React.Fragment>
+            
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
@@ -101,7 +106,7 @@ export default function Album() {
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
-                        Sección Noticias
+                        Sección Actividades Calendario Academico
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -110,23 +115,24 @@ export default function Album() {
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
                         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                            Noticias
+                            Calendario Academico
                             </Typography>
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Aquí encontrará las noticias que son de interes para la comunidad.
+                            Aquí encontrará El calendario
                             </Typography>
 
                     </Container>
                 </div>
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
-                    <Grid container spacing={4}>
+                    <Grid container spacing={1} alignItems="center"
+                                >
                         {cards.map(card => (
                             <Grid item key={card} xs={12} sm={6} md={4}>
-                                <Card className={classes.card}>
+                                <Card className={classes.card} >
                                     <CardMedia
                                         className={classes.cardMedia}
-                                        image="https://source.unsplash.com/random"
+                                        image={Certificaciones}
                                         title="Image title"
                                     />
                                     <CardContent className={classes.cardContent}>
@@ -162,7 +168,6 @@ export default function Album() {
                 <Copyright />
             </footer>
             {/* End footer */}
-
 
         </React.Fragment>
     );
