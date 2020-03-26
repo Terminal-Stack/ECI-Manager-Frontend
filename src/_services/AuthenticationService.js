@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API_URL = 'http://localhost'
+const API_URL = 'http://ec2-54-89-178-141.compute-1.amazonaws.com'
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 
 class AuthenticationService {
