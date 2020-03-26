@@ -43,3 +43,4 @@ var cargaDatos = (function () {
         }
     }
 })();
+export default cargaDatos;

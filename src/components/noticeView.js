@@ -13,13 +13,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import PerfectScrollbar from 'react-perfect-scrollbar'
+import CargaDatos from '../CargaDatos';
+import OverflowScrolling from 'react-overflow-scrolling';
 
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
+            <Link color="inherit" href="https://www.escuelaing.edu.co/es/">
                 Escuela Colombiana de Ingenieria Julio Garavito
             </Link>{' '}
             {new Date().getFullYear()}
@@ -30,6 +31,7 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
     icon: {
+
         marginRight: theme.spacing(2),
     },
     heroContent: {
@@ -55,22 +57,28 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     footer: {
+
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(6),
     },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const news = CargaDatos.getAllNews();
+const cards = [1,2,3,4,5,6,7,8,9];
 
 export default function Album() {
-    const myScrollbar = {
-        width: 400,
-        height: 400,
-    };
+
+    function handleVolver(e) {
+        e.preventDefault();
+        window.location.replace("/listaServicios");
+    }
+
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <React.Fragment >
+
             <CssBaseline />
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
@@ -78,9 +86,14 @@ export default function Album() {
                     <Typography variant="h6" color="inherit" noWrap>
                         Sección Noticias
                     </Typography>
+
                 </Toolbar>
+                <Button variant="contained" color="secondary" onClick={handleVolver}  >
+                    volver
+                </Button>
             </AppBar>
-                <main>
+
+                <main className={classes.center}>
                     {/* Hero unit */}
                     <div className={classes.heroContent}>
                         <Container maxWidth="sm">
@@ -126,6 +139,7 @@ export default function Album() {
                         </Grid>
                     </Container>
                 </main>
+
                 {/* Footer */}
                 <footer className={classes.footer}>
                     <Typography variant="h6" align="center" gutterBottom>

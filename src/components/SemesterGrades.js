@@ -44,7 +44,7 @@ export default function SemesterGrades() {
   }
   function handleVolver(e) {
     e.preventDefault();
-    window.location.replace("/listaServicios");
+    window.location.replace("/consultaNotas");
   }
   return (
     <TableContainer component={Paper}>
