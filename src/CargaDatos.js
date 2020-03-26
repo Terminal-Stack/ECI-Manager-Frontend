@@ -8,6 +8,7 @@ var cargaDatos = (function () {
 
         getPromise.then(
             function (data) {
+
                 return data;
             },
             function () {
@@ -33,6 +34,36 @@ var cargaDatos = (function () {
 
     };
 
+    var getGradesBySemester = function ( estudianteId, semester ) {
+
+        var getPromise = $.get("/grades/" + estudianteId +"?semester="+semester);
+
+        getPromise.then(
+            function (data) {
+                return data;
+            },
+            function () {
+                return null;
+            }
+        );
+
+    };
+
+    var getStudentByCollegeId = function ( CollegeId ) {
+
+        var getPromise = $.get("/students/" + CollegeId);
+
+        getPromise.then(
+            function (data) {
+                return data;
+            },
+            function () {
+                return null;
+            }
+        );
+
+    };
+
     return {
         getAllNews: function () {
             getNews()
@@ -40,7 +71,15 @@ var cargaDatos = (function () {
     ,
         getAllGrades: function ( carnet ) {
             getGrades(carnet)
+        },
+
+        getAllGradesBySemester:function (id, semester){
+            getGradesBySemester(id,semester)
+        },
+        getStudentByCollegeId:function (collegeId){
+            getStudentByCollegeId(collegeId)
         }
     }
+
 })();
 export default cargaDatos;
