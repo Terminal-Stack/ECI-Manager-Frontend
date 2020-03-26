@@ -11,6 +11,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Toolbar from "@material-ui/core/Toolbar";
+import AppBar from "@material-ui/core/AppBar";
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -36,8 +38,16 @@ export default function Login() {
     const classes = useStyles();
 
     return (
+
         <Container component="main" maxWidth="xs">
-            <CssBaseline />
+            <AppBar color='secondary'>
+                <Toolbar>
+                    <Typography variant="h6" color="secundary" noWrap>
+                        Inicio de sesión
+                    </Typography>
+                </Toolbar>
+                <CssBaseline />
+            </AppBar>
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />

@@ -8,11 +8,9 @@ var CargaDatos = (function () {
 
         getPromise.then(
             function (data) {
-                alert('entro');
                 return data;
             },
             function () {
-                alert('nell');
                 return null;
                 
             }

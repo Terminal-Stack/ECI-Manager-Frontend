@@ -21,7 +21,7 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
+            <Link color="inherit" href="https://www.escuelaing.edu.co/es/">
                 Escuela Colombiana de Ingenieria Julio Garavito
             </Link>{' '}
             {new Date().getFullYear()}
@@ -36,6 +36,7 @@ function handleVolver(e) {
 
 const useStyles = makeStyles(theme => ({
     icon: {
+
         marginRight: theme.spacing(2),
     },
     heroContent: {
@@ -61,18 +62,23 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     footer: {
+
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(6),
     },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const news = CargaDatos.getAllNews();
+const cards = [1,2,3,4,5,6,7,8,9];
 
 export default function Album() {
-    const myScrollbar = {
-        width: 400,
-        height: 400,
-    };
+
+    function handleVolver(e) {
+        e.preventDefault();
+        window.location.replace("/listaServicios");
+    }
+
     const classes = useStyles();
     function traerNoticias() {
         console.log('imprime');
@@ -103,14 +109,19 @@ export default function Album() {
                     <Typography variant="h6" color="inherit" noWrap>
                         Sección Noticias
                     </Typography>
+
                 </Toolbar>
+                <Button variant="contained" color="secondary" onClick={handleVolver}  >
+                    volver
+                </Button>
             </AppBar>
-            <main>
-                {/* Hero unit */}
-                <div className={classes.heroContent}>
-                    <Container maxWidth="sm">
-                        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                            Noticias
+                <main className={classes.center}>
+                    {/* Hero unit */}
+                    <div className={classes.heroContent}>
+                        <Container maxWidth="sm">
+                            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                                Noticias
+
                             </Typography>
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
                             Aquí encontrará las noticias que son de interes para la comunidad.
@@ -144,17 +155,19 @@ export default function Album() {
                                         <Button size="small" color="primary">
                                             Edit
                                             </Button>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Container>
-            </main>
-            {/* Footer */}
-            <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
+                                        </CardActions>
+                                    </Card>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Container>
+                </main>
+
+                {/* Footer */}
+                <footer className={classes.footer}>
+                    <Typography variant="h6" align="center" gutterBottom>
+                        Footer
+
                     </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
                     Something here to give the footer a purpose!
