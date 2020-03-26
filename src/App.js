@@ -13,6 +13,7 @@ import Checkout from './components/Checkout';
 import Electivas from './components/VistaElectivas';
 import ListaServicios from './components/ListaServicios';
 import Calendar from './components/Calendar'
+import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
 
@@ -20,32 +21,14 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/news">
-          <Album />
-        </Route>
-        <Route path="/calendar">
-          <Calendar />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/grades">
-          <SemesterGrades />
-        </Route>
-        <Route path="/checkout">
-          <Checkout />
-        </Route>
-        <Route path="/electivas">
-          <Electivas />
-        </Route>
-        <Route path="/listaServicios">
-          <ListaServicios/>
-        </Route>
-
-        
+        <PrivateRoute path="/news" exact component={Album} />  
+        <PrivateRoute path="/calendar" exact component={Calendar} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
+        <PrivateRoute path="/grades" exact component={SemesterGrades} />
+        <PrivateRoute path="/checkout" exact component={Checkout} />
+        <PrivateRoute path="/electivas" exact component={Electivas} />
+        <PrivateRoute path="/listaServicios" exact component={ListaServicios} />
       </Switch>
     </Router>
   );
