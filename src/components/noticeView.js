@@ -15,6 +15,9 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import CargaDatos from '../CargaDatos';
+import axios from "axios";
+import AuthenticationService from "../_services/AuthenticationService";
+const API_URL = 'http://ec2-54-89-178-141.compute-1.amazonaws.com';
 
 
 function Copyright() {
@@ -69,10 +72,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const news = CargaDatos.getAllNews();
+
 const cards = [1,2,3,4,5,6,7,8,9];
 
-export default function Album() {
+export default  function Album() {
+    
 
     function handleVolver(e) {
         e.preventDefault();
@@ -80,30 +84,39 @@ export default function Album() {
     }
 
     const classes = useStyles();
-    function traerNoticias() {
-        console.log('imprime');
-        console.log(CargaDatos.getAllNews());
-    };
+
+
     function handleLog(e) {
         e.preventDefault();
         window.location.replace("/login");
-      }
-    return (
-        <React.Fragment>
-            <AppBar position="relative" color='secondary'>
-                <Toolbar >
-                    <Typography variant="h6" color="inherit" noWrap>
-                        Sección Noticias
-                    </Typography>
-                </Toolbar>
-                <Button variant="contained" color="secondary" onClick={handleLog}  >
-                    Desconectarse
-                </Button>
-                <Button variant="contained" color="secondary" onClick={handleVolver}  >
-                    volver
-                </Button>
-            </AppBar>
-            <CssBaseline />
+    }
+    var prueba = async function cual() {
+        var news = await axios.get(`${API_URL}/news`,
+            {
+                headers: {
+                    authorization: AuthenticationService.createBasicAuthToken(
+                        'daniel.vela@mail.escuelaing.edu.co', 'password')
+                }
+            });
+        alert(news.data._embedded.news)
+
+        const newsF = news.data._embedded.news
+        return (
+            <React.Fragment>
+                <AppBar position="relative" color='secondary'>
+                    <Toolbar>
+                        <Typography variant="h6" color="inherit" noWrap>
+                            Sección Noticias
+                        </Typography>
+                    </Toolbar>
+                    <Button variant="contained" color="secondary" onClick={handleLog}>
+                        Desconectarse
+                    </Button>
+                    <Button variant="contained" color="secondary" onClick={handleVolver}>
+                        volver
+                    </Button>
+                </AppBar>
+                <CssBaseline/>
 
                 <main className={classes.center}>
                     {/* Hero unit */}
@@ -113,37 +126,40 @@ export default function Album() {
                                 Noticias
 
                             </Typography>
-                        <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Aquí encontrará las noticias que son de interes para la comunidad.
+                            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                                Aquí encontrará las noticias que son de interes para la comunidad.
                             </Typography>
 
-                    </Container>
-                </div>
-                <Container className={classes.cardGrid} maxWidth="md">
-                    {/* End hero unit */}
-                    <Grid container spacing={4}>
-                        {cards.map(card => (
-                            <Grid item key={card} xs={12} sm={6} md={4}>
-                                <Card className={classes.card}>
-                                    <CardMedia
-                                        className={classes.cardMedia}
-                                        image="https://source.unsplash.com/random"
-                                        title="Image title"
-                                    />
-                                    <CardContent className={classes.cardContent}>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            Heading
+                        </Container>
+                    </div>
+                    <Container className={classes.cardGrid} maxWidth="md">
+                        {/* End hero unit */}
+                        <Grid container spacing={4}>
+                            {alert("Adentrooo" + newsF)}
+                            {newsF.map(card => (
+                                <Grid item key={card} xs={12} sm={6} md={4}>
+                                    alert(card.picture)
+                                    {alert("Picture " + card.picture)}
+                                    <Card className={classes.card}>
+                                        <CardMedia
+                                            className={classes.cardMedia}
+                                            image="https://source.unsplash.com/random"
+                                            title="Image title"
+                                        />
+                                        <CardContent className={classes.cardContent}>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                Heading
                                             </Typography>
-                                        <Typography>
-                                            This is a media card. You can use this section to describe the content.
+                                            <Typography>
+                                                This is a media card. You can use this section to describe the content.
                                             </Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <Button size="small" color="primary">
-                                            View
+                                        </CardContent>
+                                        <CardActions>
+                                            <Button size="small" color="primary">
+                                                View
                                             </Button>
-                                        <Button size="small" color="primary">
-                                            Edit
+                                            <Button size="small" color="primary">
+                                                Edit
                                             </Button>
                                         </CardActions>
                                     </Card>
@@ -159,14 +175,19 @@ export default function Album() {
                         Footer
 
                     </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
+                    <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+                        Something here to give the footer a purpose!
                     </Typography>
-                <Copyright />
-            </footer>
-            {/* End footer */}
+                    <Copyright/>
+                </footer>
+                {/* End footer */}
 
 
-        </React.Fragment>
-    );
+            </React.Fragment>
+        );
+    }
+    alert(prueba())
+    return null;
+
+
 }
