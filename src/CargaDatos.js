@@ -1,14 +1,17 @@
 import $ from "jquery";
+import axios from 'axios';
+import AuthenticationService from "./_services/AuthenticationService";
+const API_URL = 'http://ec2-54-89-178-141.compute-1.amazonaws.com';
 
 var CargaDatos = (function () {
 
     var getNews = function () {
 
-        var getPromise = $.get("/news");
-
+        var getPromise = axios.get(`${API_URL}/news`);
+        alert(AuthenticationService.getLoggedInUserName())
         getPromise.then(
             function (data) {
-
+                alert(data)
                 return data;
             },
             function () {

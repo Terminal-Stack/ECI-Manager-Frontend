@@ -18,6 +18,7 @@ import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
 
+
 function App() {
   return (
     <Router>
@@ -30,6 +31,7 @@ function App() {
         <PrivateRoute path="/checkout" exact component={Checkout} />
         <PrivateRoute path="/electivas" exact component={Electivas} />
         <PrivateRoute path="/listaServicios" exact component={ListaServicios} />
+        <PrivateRoute path="/consultaNotas" exact component={ConsultaNotas} />
       </Switch>
     </Router>
   );
