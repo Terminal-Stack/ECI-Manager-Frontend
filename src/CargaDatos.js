@@ -8,7 +8,7 @@ var CargaDatos = (function () {
     var getNews = function () {
 
         var getPromise = axios.get(`${API_URL}/news`);
-        alert(AuthenticationService.getLoggedInUserName())
+        
         getPromise.then(
             function (data) {
                 alert(data)
