@@ -19,6 +19,7 @@ function Copyright() {
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
+
         </Typography>
     );
 }
@@ -53,18 +54,28 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: '#E82F08',
         padding: theme.spacing(6),
     },
+    submitButton: {
+        height: 85,
+        flex: 1,
+        backgroundColor: "#FFBB34",
+        borderColor: "#555555",
+        borderWidth: 0,
+        borderRadius: 0,
+        marginTop: 200,
+        justifyContent: "flex-start"
+    }
 }));
 
 
 const flag = false;
 export default function ListaServicios() {
 
-    
+
     const [state, setState] = React.useState({
         noticias: false,
         consulnotas: false,
         certinotas: false,
-        logout : false
+        logout: false
     });
     function handleClick(e) {
         e.preventDefault();
@@ -76,7 +87,7 @@ export default function ListaServicios() {
     }
     function handleClick2(e) {
         e.preventDefault();
-        window.location.replace("/consultaNotas");
+        window.location.replace("/grades");
     }
     function handleClick3(e) {
         e.preventDefault();
@@ -99,10 +110,13 @@ export default function ListaServicios() {
                     <Typography variant="h6" color="inherit" noWrap>
                         Lista de servicios Escuela Colombiana de Ingeniería Julio Garavito.
                     </Typography>
+                    <div>
+                    </div>
+                    <Button variant="contained" color="secondary" onClick={handleLog}  >
+                        Desconectarse
+                    </Button>
                 </Toolbar>
-                <Button variant="contained" color="secondary" onClick={handleLog}  >
-                    Desconectarse
-                </Button>
+
             </AppBar>
             <main>
 
@@ -120,8 +134,8 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                
-                
+
+
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
@@ -133,8 +147,8 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                
-                
+
+
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
@@ -146,8 +160,8 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                
-                
+
+
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
@@ -184,8 +198,8 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                
-                    </div>
+
+                </div>
             </main>
 
             <Copyright />
