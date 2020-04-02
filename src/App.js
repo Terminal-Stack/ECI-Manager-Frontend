@@ -18,6 +18,7 @@ import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
 
+
 function App() {
   return (
     <Router>
@@ -26,10 +27,11 @@ function App() {
         <Route path="/calendar"  component={Calendar} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/grades"  component={SemesterGrades} />
-        <Route path="/checkout"  component={Checkout} />
-        <Route path="/electivas"  component={Electivas} />
-        <Route path="/listaServicios" component={ListaServicios} />
+        <PrivateRoute path="/grades" exact component={SemesterGrades} />
+        <PrivateRoute path="/checkout" exact component={Checkout} />
+        <PrivateRoute path="/electivas" exact component={Electivas} />
+        <PrivateRoute path="/listaServicios" exact component={ListaServicios} />
+        <PrivateRoute path="/consultaNotas" exact component={ConsultaNotas} />
       </Switch>
     </Router>
   );

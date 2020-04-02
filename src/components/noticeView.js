@@ -93,7 +93,7 @@ export default function Album() {
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
-                        Notas academicas
+                        Sección Noticias
                     </Typography>
                 </Toolbar>
                 <Button variant="contained" color="secondary" onClick={handleLog}  >
@@ -104,17 +104,7 @@ export default function Album() {
                 </Button>
             </AppBar>
             <CssBaseline />
-            <AppBar position="relative" color='secondary'>
-                <Toolbar >
-                    <Typography variant="h6" color="inherit" noWrap>
-                        Sección Noticias
-                    </Typography>
 
-                </Toolbar>
-                <Button variant="contained" color="secondary" onClick={handleVolver}  >
-                    volver
-                </Button>
-            </AppBar>
                 <main className={classes.center}>
                     {/* Hero unit */}
                     <div className={classes.heroContent}>
