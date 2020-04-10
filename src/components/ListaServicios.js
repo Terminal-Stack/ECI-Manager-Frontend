@@ -91,6 +91,10 @@ export default function ListaServicios() {
         e.preventDefault();
         window.location.replace("/login");
     }
+    function handleClick8(e) {
+        e.preventDefault();
+        window.location.replace("/horario");
+    }
     const classes = useStyles();
     return (
         <React.Fragment>
@@ -134,8 +138,8 @@ export default function ListaServicios() {
                             </Grid>
                         </div>
                     </Container>
-                
-                
+
+
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
@@ -180,6 +184,18 @@ export default function ListaServicios() {
                                 <Grid item>
                                     <Button variant="contained" color="secondary" onClick={handleClick5} >
                                         calendario academico
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </Container>
+
+                    <Container maxWidth="sm">
+                        <div className={classes.heroButtons}>
+                            <Grid container spacing={1.5} justify="center">
+                                <Grid item>
+                                    <Button variant="contained" color="secondary" onClick={handleClick8}>
+                                        Consultar Horario
                                     </Button>
                                 </Grid>
                             </Grid>
