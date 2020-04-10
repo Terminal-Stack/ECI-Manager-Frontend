@@ -1,25 +1,23 @@
 import $ from "jquery";
 import axios from 'axios';
 import AuthenticationService from "./_services/AuthenticationService";
+import noticeView from "./components/noticeView";
 const API_URL = 'http://ec2-54-89-178-141.compute-1.amazonaws.com';
 
 var CargaDatos = (function () {
 
     var getNews = function () {
 
-        var getPromise = axios.get(`${API_URL}/news`);
-        
-        getPromise.then(
-            function (data) {
-                alert(data)
-                return data;
-            },
-            function () {
-                return null;
-                
-            }
-        );
-
+        var valor = axios.get(`${API_URL}/news`,
+            {
+                headers: {
+                    authorization: AuthenticationService.createBasicAuthToken(
+                        'daniel.vela@mail.escuelaing.edu.co', 'password')
+                }
+            });
+        //alert(AuthenticationService.getLoggedInUserName())
+        alert(valor.data._embedded.news)
+        return valor;
 
     };
 
