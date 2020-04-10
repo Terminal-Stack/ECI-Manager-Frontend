@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -76,7 +76,8 @@ const useStyles = makeStyles(theme => ({
 const cards = [1,2,3,4,5,6,7,8,9];
 
 export default  function Album() {
-    
+
+    const [newsF, setNewsF] = useState([]);
 
     function handleVolver(e) {
         e.preventDefault();
@@ -90,104 +91,103 @@ export default  function Album() {
         e.preventDefault();
         window.location.replace("/login");
     }
-    var prueba = async function cual() {
-        var news = await axios.get(`${API_URL}/news`,
+
+    useEffect(() => {
+        axios.get(`${API_URL}/news`,
             {
                 headers: {
                     authorization: AuthenticationService.createBasicAuthToken(
                         'daniel.vela@mail.escuelaing.edu.co', 'password')
                 }
-            });
-        alert(news.data._embedded.news)
+            }).then(response => {
+            console.log("news " + JSON.stringify(response));
+            setNewsF(response.data._embedded.news);
+        })
+            .catch(error => console.log("Error retrieving news " + error));
+        //alert(news.data._embedded.news)
+    });
 
-        const newsF = news.data._embedded.news
-        return (
-            <React.Fragment>
-                <AppBar position="relative" color='secondary'>
-                    <Toolbar>
-                        <Typography variant="h6" color="inherit" noWrap>
-                            Sección Noticias
+
+
+    return (
+        <React.Fragment>
+            <AppBar position="relative" color='secondary'>
+                <Toolbar>
+                    <Typography variant="h6" color="inherit" noWrap>
+                        Sección Noticias
+                    </Typography>
+                </Toolbar>
+                <Button variant="contained" color="secondary" onClick={handleLog}>
+                    Desconectarse
+                </Button>
+                <Button variant="contained" color="secondary" onClick={handleVolver}>
+                    volver
+                </Button>
+            </AppBar>
+            <CssBaseline/>
+
+            <main className={classes.center}>
+                {/* Hero unit */}
+                <div className={classes.heroContent}>
+                    <Container maxWidth="sm">
+                        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                            Noticias
+
                         </Typography>
-                    </Toolbar>
-                    <Button variant="contained" color="secondary" onClick={handleLog}>
-                        Desconectarse
-                    </Button>
-                    <Button variant="contained" color="secondary" onClick={handleVolver}>
-                        volver
-                    </Button>
-                </AppBar>
-                <CssBaseline/>
+                        <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                            Aquí encontrará las noticias que son de interes para la comunidad.
+                        </Typography>
 
-                <main className={classes.center}>
-                    {/* Hero unit */}
-                    <div className={classes.heroContent}>
-                        <Container maxWidth="sm">
-                            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                                Noticias
-
-                            </Typography>
-                            <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                                Aquí encontrará las noticias que son de interes para la comunidad.
-                            </Typography>
-
-                        </Container>
-                    </div>
-                    <Container className={classes.cardGrid} maxWidth="md">
-                        {/* End hero unit */}
-                        <Grid container spacing={4}>
-                            {alert("Adentrooo" + newsF)}
-                            {newsF.map(card => (
-                                <Grid item key={card} xs={12} sm={6} md={4}>
-                                    alert(card.picture)
-                                    {alert("Picture " + card.picture)}
-                                    <Card className={classes.card}>
-                                        <CardMedia
-                                            className={classes.cardMedia}
-                                            image="https://source.unsplash.com/random"
-                                            title="Image title"
-                                        />
-                                        <CardContent className={classes.cardContent}>
-                                            <Typography gutterBottom variant="h5" component="h2">
-                                                Heading
-                                            </Typography>
-                                            <Typography>
-                                                This is a media card. You can use this section to describe the content.
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions>
-                                            <Button size="small" color="primary">
-                                                View
-                                            </Button>
-                                            <Button size="small" color="primary">
-                                                Edit
-                                            </Button>
-                                        </CardActions>
-                                    </Card>
-                                </Grid>
-                            ))}
-                        </Grid>
                     </Container>
-                </main>
+                </div>
+                <Container className={classes.cardGrid} maxWidth="md">
+                    {/* End hero unit */}
+                    <Grid container spacing={4}>
+                        {newsF.map(card => (
+                            <Grid item key={card.id} xs={12} sm={6} md={4}>
+                                <Card className={classes.card}>
+                                    <CardMedia
+                                        className={classes.cardMedia}
+                                        image={card.picture}
+                                        title={card.title}
+                                    />
+                                    <CardContent className={classes.cardContent}>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            {card.title}
+                                        </Typography>
+                                        <Typography>
+                                            {card.content}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small" color="primary">
+                                            View
+                                        </Button>
+                                        <Button size="small" color="primary">
+                                            Edit
+                                        </Button>
+                                    </CardActions>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </main>
 
-                {/* Footer */}
-                <footer className={classes.footer}>
-                    <Typography variant="h6" align="center" gutterBottom>
-                        Footer
+            {/* Footer */}
+            <footer className={classes.footer}>
+                <Typography variant="h6" align="center" gutterBottom>
+                    Footer
 
-                    </Typography>
-                    <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                        Something here to give the footer a purpose!
-                    </Typography>
-                    <Copyright/>
-                </footer>
-                {/* End footer */}
-
-
-            </React.Fragment>
-        );
-    }
-    alert(prueba())
-    return null;
+                </Typography>
+                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+                    Sección de noticias Escuela Colombiana de Ingenieria Julio Garavito
+                </Typography>
+                <Copyright/>
+            </footer>
+            {/* End footer */}
 
 
+        </React.Fragment>
+    );
 }
