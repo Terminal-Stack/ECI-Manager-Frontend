@@ -33,13 +33,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function Review() {
+
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Order summary
+       Resumen del pago.
       </Typography>
       <List disablePadding>
         {products.map(product => (
@@ -65,7 +67,7 @@ export default function Review() {
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
-            Payment details
+            Detalles del pago.
           </Typography>
           <Grid container>
             {payments.map(payment => (

@@ -25,16 +25,16 @@ function App() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute path="/news" exact component={Album} />  
+        <PrivateRoute path="/news" exact component={Album} />
         <PrivateRoute path="/calendar" exact component={Calendar} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <PrivateRoute path="/grades" exact component={SemesterGrades} />
-        <PrivateRoute path="/checkout" exact component={Checkout} />
+        <Route path="/checkout" exact component={Checkout} />
         <PrivateRoute path="/electivas" exact component={Electivas} />
         <PrivateRoute path="/listaServicios" exact component={ListaServicios} />
         <PrivateRoute path="/consultaNotas" exact component={ConsultaNotas} />
-        <PrivateRoute path="/certificaciones" exact component={Certificaciones} />
+        <Route path="/certificaciones" exact component={Certificaciones} />
         <PrivateRoute path="/horario" exact component={Horario} />
         
       </Switch>
