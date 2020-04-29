@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Información pago', 'Detalles de pago', 'Resumen pago'];
 
 function getStepContent(step) {
   switch (step) {
@@ -111,7 +111,7 @@ export default function Checkout() {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+            Pagos
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map(label => (

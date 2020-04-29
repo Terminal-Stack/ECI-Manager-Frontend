@@ -4,29 +4,50 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+function valid_credit_card(value) {
+  // Accept only digits, dashes or spaces
+  if (/[^0-9-\s]+/.test(value)) return false;
 
+  // The Luhn Algorithm. It's so pretty.
+  let nCheck = 0, bEven = false;
+  value = value.replace(/\D/g, "");
+
+  for (var n = value.length - 1; n >= 0; n--) {
+    var cDigit = value.charAt(n),
+        nDigit = parseInt(cDigit, 10);
+
+    if (bEven && (nDigit *= 2) > 9) nDigit -= 9;
+
+    nCheck += nDigit;
+    bEven = !bEven;
+  }
+
+  return (nCheck % 10) == 0;
+}
 export default function PaymentForm() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Payment method
+        Metodo de pago
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" fullWidth />
+          <TextField required id="cardName" label="Nombre propietario (en la tarjeta)" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardNumber" label="Card number" fullWidth />
+          <TextField required id="cardNumber" label="Numero de tarjeta" fullWidth />
+          {valid_credit_card()}
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" fullWidth />
+          <TextField required id="expDate" label="Fecha de expiración" fullWidth />
+
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
             required
             id="cvv"
             label="CVV"
-            helperText="Last three digits on signature strip"
+            helperText="Ultimos tres digitos detras de la tarjeta"
             fullWidth
           />
         </Grid>
