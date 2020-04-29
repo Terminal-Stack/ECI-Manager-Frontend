@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://localhost'
+const API_URL = 'https://eci-manager-backend.herokuapp.com/'
 
 class NewsDataService {
 
