@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,6 +11,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import GradesDataService from "../_services/GradesDataService";
+import AuthenticationService from "../_services/AuthenticationService";
+
+const API_URL = 'http://ec2-54-89-178-141.compute-1.amazonaws.com';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -37,6 +41,7 @@ const rows = [
 ]
 
 export default function SemesterGrades() {
+  const [newsF, setNewsF] = useState([]);
   const classes = useStyles();
   function handleLog(e) {
     e.preventDefault();
@@ -46,6 +51,15 @@ export default function SemesterGrades() {
     e.preventDefault();
     window.location.replace("/consultaNotas");
   }
+  useEffect(() => {
+    //AuthenticationService.
+    GradesDataService.retrieveAllGrades(2131406).then(response => {
+      //console.log("grades " + JSON.stringify(response)); 
+      setNewsF(response.data._embedded.grades);
+      console.log(newsF);
+    })
+      .catch(error => console.log("Error retrieving grades " + error));
+  });
   return (
     <TableContainer component={Paper}>
       <AppBar position="relative" color='secondary'>
@@ -65,22 +79,20 @@ export default function SemesterGrades() {
         <TableHead>
           <TableRow>
             <TableCell>Subject</TableCell>
-            <TableCell align="right">First term</TableCell>
-            <TableCell align="right">Second Term</TableCell>
-            <TableCell align="right">Third Term</TableCell>
-            <TableCell align="right">Total</TableCell>
+            <TableCell align="right">semester</TableCell>
+            <TableCell align="right">Term</TableCell>
+            <TableCell align="right">grade</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {newsF.map(row => (
             <TableRow key={row.subject}>
               <TableCell component="th" scope="row">
                 {row.subject}
               </TableCell>
-              <TableCell align="right">{row.firstTerm}</TableCell>
-              <TableCell align="right">{row.secondTerm}</TableCell>
-              <TableCell align="right">{row.thirdTerm}</TableCell>
-              <TableCell align="right">{row.total}</TableCell>
+              <TableCell align="right">{row.semester}</TableCell>
+              <TableCell align="right">{row.term}</TableCell>
+              <TableCell align="right">{row.grade}</TableCell>
             </TableRow>
           ))}
         </TableBody>

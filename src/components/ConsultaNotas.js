@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -7,6 +7,7 @@ import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
+
 
 function Copyright() {
     return (
@@ -29,6 +30,9 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 export default function ConsultaNotas() {
+
+    
+    
     function handleVolver(e) {
         e.preventDefault();
         window.location.replace("/listaServicios");
@@ -38,6 +42,7 @@ export default function ConsultaNotas() {
         window.location.replace("/grades");
     }
     const classes = useStyles();
+   
     return (
         <React.Fragment>
             <AppBar position="relative" color='secondary'>
