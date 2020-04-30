@@ -103,8 +103,7 @@ const boton6={
     left : -20
     
 }
-const carta={
-    
+const carta={   
     
 }
 const contenedor={
