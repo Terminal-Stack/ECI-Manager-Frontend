@@ -7,6 +7,9 @@ class GradesDataService {
         return axios.get(`${API_URL}grades/` +
             e);
     }
+    retrieveStudent(e){
+        return axios.get(`${API_URL}students/`+e);
+    }
 }
 
 export default new GradesDataService()
