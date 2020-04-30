@@ -29,11 +29,11 @@ function App() {
         <PrivateRoute path="/calendar" exact component={Calendar} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
-        <PrivateRoute path="/grades" exact component={SemesterGrades} />
+        <Route path="/grades" exact component={SemesterGrades} />
         <Route path="/checkout" exact component={Checkout} />
         <PrivateRoute path="/electivas" exact component={Electivas} />
-        <PrivateRoute path="/listaServicios" exact component={ListaServicios} />
-        <PrivateRoute path="/consultaNotas" exact component={ConsultaNotas} />
+        <Route path="/listaServicios" exact component={ListaServicios} />
+        <Route path="/consultaNotas" exact component={ConsultaNotas} />
         <Route path="/certificaciones" exact component={Certificaciones} />
         <PrivateRoute path="/horario" exact component={Horario} />
         

@@ -55,8 +55,56 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(6),
     },
 }));
-
-
+const boton0 ={
+    background:"#81d8d0",
+    width: "100%",
+    height :"100%"
+};
+const boton ={
+    background:"#81d8d0",
+    width: "218%",
+    height :"40px"
+};
+const boton1={
+    background:"#81d8d0",
+    width: "128%",
+    height :"40px"
+}
+const boton2={
+    background:"#81d8d0",
+    width: "124%",
+    height :"40px"
+}
+const boton3={
+    background:"#81d8d0",
+    width: "118%",
+    height :"40px"
+}
+const boton4={
+    background:"#81d8d0",
+    width: "101%",
+    height :"40px"
+}
+const boton5={
+    background:"#81d8d0",
+    width: "103%",
+    height :"40px"
+}
+const boton6={
+    background:"#81d8d0",
+    width: "118%",
+    height :"40px",
+    
+}
+const carta={
+    background:"#D1BF26"
+    
+}
+const contenedor={
+    flex: 4,
+    padding: 2,
+    backgroundColor: '#D1BF26'
+}
 const flag = false;
 export default function ListaServicios() {
 
@@ -66,6 +114,7 @@ export default function ListaServicios() {
         consulnotas: false,
         certinotas: false,
         logout : false
+        
     });
     function handleClick(e) {
         e.preventDefault();
@@ -105,20 +154,20 @@ export default function ListaServicios() {
                         Lista de servicios Escuela Colombiana de Ingeniería Julio Garavito.
                     </Typography>
                 </Toolbar>
-                <Button variant="contained" color="secondary" onClick={handleLog}  >
+                <Button variant="contained" style={boton0} color="secondary" onClick={handleLog}  >
                     Desconectarse
                 </Button>
             </AppBar>
             <main>
 
 
-                <div className={classes.heroContent}>
-                    <Container maxWidth="sm">
+                
+                    <Container maxWidth="sm" style={contenedor}>
                         <div className={classes.heroButtons}>
-                            <Grid container spacing={1.5} justify="center">
+                            <Grid container spacing={1.5} justify="center"style={carta} widht="200px">
 
                                 <Grid item>
-                                    <Button variant="contained" color="secondary" onClick={handleClick}>
+                                    <Button variant="contained" style={boton} color="secondary" onClick={handleClick}>
                                         noticias
                                     </Button>
                                 </Grid>
@@ -127,12 +176,12 @@ export default function ListaServicios() {
                     </Container>
                 
                 
-                    <Container maxWidth="sm">
+                    <Container maxWidth="sm" style={contenedor}>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="secondary" onClick={handleClick2}>
-                                        consultar notas
+                                    <Button variant="contained" style={boton1} color="secondary" onClick={handleClick2}>
+                                        consultar notas             
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -140,11 +189,11 @@ export default function ListaServicios() {
                     </Container>
 
 
-                    <Container maxWidth="sm">
+                    <Container maxWidth="sm" style={contenedor}>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="secondary" onClick={handleClick4}>
+                                    <Button variant="contained" style={boton2   } color="secondary" onClick={handleClick4}>
                                         Lista de electivas
                                     </Button>
                                 </Grid>
@@ -153,24 +202,23 @@ export default function ListaServicios() {
                     </Container>
                 
                 
-                    <Container maxWidth="sm">
+                    <Container maxWidth="sm" style={contenedor}>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="secondary" onClick={handleClick4}>
+                                    <Button variant="contained" style={boton3} color="secondary" onClick={handleClick4}>
                                         materias electivas
                                     </Button>
                                 </Grid>
                             </Grid>
                         </div>
                     </Container>
-                </div>
-                <div className={classes.heroContent}>
-                    <Container maxWidth="sm">
+                
+                    <Container maxWidth="sm" style={contenedor}>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="secondary" onClick={handleClick3}>
+                                    <Button variant="contained" style={boton4} color="secondary" onClick={handleClick3}>
                                         certificado de estudio
                                     </Button>
                                 </Grid>
@@ -178,11 +226,11 @@ export default function ListaServicios() {
                         </div>
                     </Container>
 
-                    <Container maxWidth="sm">
+                    <Container maxWidth="sm" style={contenedor}>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="secondary" onClick={handleClick5} >
+                                    <Button variant="contained" style={boton5} color="secondary" onClick={handleClick5} >
                                         calendario academico
                                     </Button>
                                 </Grid>
@@ -190,11 +238,11 @@ export default function ListaServicios() {
                         </div>
                     </Container>
 
-                    <Container maxWidth="sm">
+                    <Container maxWidth="sm" style={contenedor}>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="secondary" onClick={handleClick8}>
+                                    <Button variant="contained" style={boton6} color="secondary" onClick={handleClick8}>
                                         Consultar Horario
                                     </Button>
                                 </Grid>
@@ -202,7 +250,7 @@ export default function ListaServicios() {
                         </div>
                     </Container>
                 
-                    </div>
+                    
             </main>
 
             <Copyright />

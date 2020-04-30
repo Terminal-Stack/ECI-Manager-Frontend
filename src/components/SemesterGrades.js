@@ -42,6 +42,7 @@ const rows = [
 
 export default function SemesterGrades() {
   const [newsF, setNewsF] = useState([]);
+  const [user,setUser]=useState();
   const classes = useStyles();
   function handleLog(e) {
     e.preventDefault();
@@ -53,10 +54,15 @@ export default function SemesterGrades() {
   }
   useEffect(() => {
     //AuthenticationService.
-    GradesDataService.retrieveAllGrades(2131406).then(response => {
+    //GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
+      GradesDataService.retrieveStudent('daniel.vela@mail.escuelaing.edu.co').then(responseu =>{
+      setUser(responseu.data.collegeId);
+    })
+    
+    GradesDataService.retrieveAllGrades(user).then(response => {
       //console.log("grades " + JSON.stringify(response)); 
       setNewsF(response.data._embedded.grades);
-      console.log(newsF);
+      
     })
       .catch(error => console.log("Error retrieving grades " + error));
   });
