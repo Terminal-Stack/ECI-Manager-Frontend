@@ -17,6 +17,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 import CargaDatos from '../CargaDatos';
 import axios from "axios";
 import AuthenticationService from "../_services/AuthenticationService";
+import NewsDataService from '../_services/NewsDataService';
 const API_URL = 'http://ec2-54-89-178-141.compute-1.amazonaws.com';
 
 
@@ -75,7 +76,7 @@ const useStyles = makeStyles(theme => ({
 
 const cards = [1,2,3,4,5,6,7,8,9];
 
-export default  function Album() {
+export default function Album() {
 
     const [newsF, setNewsF] = useState([]);
 
@@ -93,13 +94,7 @@ export default  function Album() {
     }
 
     useEffect(() => {
-        axios.get(`${API_URL}/news`,
-            {
-                headers: {
-                    authorization: AuthenticationService.createBasicAuthToken(
-                        'daniel.vela@mail.escuelaing.edu.co', 'password')
-                }
-            }).then(response => {
+        NewsDataService.retrieveAllNews().then(response => {
             console.log("news " + JSON.stringify(response));
             setNewsF(response.data._embedded.news);
         })

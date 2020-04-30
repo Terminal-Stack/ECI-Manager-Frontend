@@ -69,10 +69,10 @@ class Login extends React.Component {
             return;
         }
         
-        AuthenticationService.executeBasicAuthenticationService(email, password)
+        AuthenticationService.executeAuthenticationService(email, password)
             .then(
-                () => {
-                    AuthenticationService.registerSuccessfulLogin(this.state.email, this.state.password);
+                (response) => {
+                    AuthenticationService.registerSuccessfulLogin(this.state.email, response.data.token);
                     this.props.history.push('/listaServicios');
                 },
                 error => this.setState({ error, loading: false })

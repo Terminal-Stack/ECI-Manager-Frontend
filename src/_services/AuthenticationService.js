@@ -1,23 +1,23 @@
 import axios from 'axios'
-const API_URL = 'http://ec2-54-89-178-141.compute-1.amazonaws.com'
+const API_URL = 'http://localhost'
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 
 class AuthenticationService {
 
-    executeBasicAuthenticationService(username, password) {
-        return axios.get(`${API_URL}/login`,
-            { headers: { authorization: this.createBasicAuthToken(username, password) } })
+    executeAuthenticationService(email, password) {
+        return axios.post(`${API_URL}/authenticate`, {
+            email,
+            password
+        })
     }
 
-    createBasicAuthToken(username, password) {
-        return 'Basic ' + window.btoa(username + ":" + password)
+    createJwtToken(token) {
+        return 'Bearer ' + token
     }
 
-    registerSuccessfulLogin(username, password) {
-        //let basicAuthHeader = 'Basic ' +  window.btoa(username + ":" + password)
-        //console.log('registerSuccessfulLogin')
+    registerSuccessfulLogin(username, token) {
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
-        this.setupAxiosInterceptors(this.createBasicAuthToken(username, password))
+        this.setupAxiosInterceptors(this.createJwtToken(token))
     }
 
     logout() {
