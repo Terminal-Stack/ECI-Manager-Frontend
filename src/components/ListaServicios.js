@@ -56,29 +56,33 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 const boton0 ={
-    background:"#81d8d0",
+    background:"#0D3EF4",
     width: "100%",
     height :"100%"
 };
 const boton ={
     background:"#81d8d0",
     width: "218%",
-    height :"40px"
+    height :"40px",
+    left : -60
 };
 const boton1={
     background:"#81d8d0",
     width: "128%",
-    height :"40px"
+    height :"40px",
+    left : -22
 }
 const boton2={
     background:"#81d8d0",
     width: "124%",
-    height :"40px"
+    height :"40px",
+    left : -20
 }
 const boton3={
     background:"#81d8d0",
     width: "118%",
-    height :"40px"
+    height :"40px",
+    left : -20
 }
 const boton4={
     background:"#81d8d0",
@@ -88,22 +92,26 @@ const boton4={
 const boton5={
     background:"#81d8d0",
     width: "103%",
-    height :"40px"
+    height :"40px",
+    flex:" 0 0 35px"
 }
 const boton6={
+    flex:" 0 0 40px",
+    height: "40px", 
     background:"#81d8d0",
     width: "118%",
-    height :"40px",
+    left : -20
     
 }
 const carta={
-    background:"#D1BF26"
+    background:"#489516"
     
 }
 const contenedor={
-    flex: 4,
-    padding: 2,
-    backgroundColor: '#D1BF26'
+    flex: 20,
+    width: "150%",
+    padding: 6,
+    backgroundColor: '#489516'
 }
 const flag = false;
 export default function ListaServicios() {
