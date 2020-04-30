@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import  { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -31,6 +31,23 @@ const useStyles = makeStyles(theme => ({
 function createData(subject, firstTerm, secondTerm, thirdTerm, total) {
   return { subject, firstTerm, secondTerm, thirdTerm, total };
 }
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
+}))(TableRow);
 
 const rows = [
   createData('ARSW', 45, 25, 32, 34),
@@ -84,22 +101,22 @@ export default function SemesterGrades() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Subject</TableCell>
-            <TableCell align="right">semester</TableCell>
-            <TableCell align="right">Term</TableCell>
-            <TableCell align="right">grade</TableCell>
+            <StyledTableCell>Subject</StyledTableCell>
+            <StyledTableCell align="right">semester</StyledTableCell>
+            <StyledTableCell align="right">Term</StyledTableCell>
+            <StyledTableCell align="right">grade</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {newsF.map(row => (
-            <TableRow key={row.subject}>
-              <TableCell component="th" scope="row">
+            <StyledTableRow key={row.subject}>
+              <StyledTableCell component="th" scope="row">
                 {row.subject}
-              </TableCell>
-              <TableCell align="right">{row.semester}</TableCell>
-              <TableCell align="right">{row.term}</TableCell>
-              <TableCell align="right">{row.grade}</TableCell>
-            </TableRow>
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.semester}</StyledTableCell>
+              <StyledTableCell align="right">{row.term}</StyledTableCell>
+              <StyledTableCell align="right">{row.grade}</StyledTableCell>
+            </StyledTableRow>
           ))}
         </TableBody>
       </Table>
