@@ -24,22 +24,36 @@ function valid_credit_card(value) {
 
   return (nCheck % 10) == 0;
 }
-export default function PaymentForm() {
+export default function PaymentForm(prop) {
+  const handleChangeCN = (event) => {
+    prop.setCardInfo(event.target.value);
+  };
+  const handleChangeNP = (event) => {
+    prop.setCardHolder(event.target.value);
+  };
+  const handleChangeF = (event) => {
+    prop.setCardExpiry(event.target.value);
+  };
+  const handleChangeCVV = (event) => {
+    prop.setCVV(event.target.value);
+  };
+
   return (
+
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Metodo de pago
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Nombre propietario (en la tarjeta)" fullWidth />
+          <TextField required id="cardName" label="Nombre propietario (en la tarjeta)" fullWidth onChange={handleChangeNP}/>
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardNumber" label="Numero de tarjeta" fullWidth />
+          <TextField required id="cardNumber" label="Numero de tarjeta" fullWidth onChange={handleChangeCN}/>
           {valid_credit_card()}
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Fecha de expiración" fullWidth />
+          <TextField required id="expDate" label="Fecha de expiración" fullWidth onChange={handleChangeF}/>
 
         </Grid>
         <Grid item xs={12} md={6}>
@@ -47,6 +61,7 @@ export default function PaymentForm() {
             required
             id="cvv"
             label="CVV"
+            onChange={handleChangeCVV}
             helperText="Ultimos tres digitos detras de la tarjeta"
             fullWidth
           />
