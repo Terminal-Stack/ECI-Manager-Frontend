@@ -25,13 +25,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute path="/news" exact component={Album} />
+        <Route path="/news" exact component={Album} />
         <PrivateRoute path="/calendar" exact component={Calendar} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/grades" exact component={SemesterGrades} />
         <Route path="/checkout" exact component={Checkout} />
-        <PrivateRoute path="/electivas" exact component={Electivas} />
+        <Route path="/electivas" exact component={Electivas} />
         <Route path="/listaServicios" exact component={ListaServicios} />
         <Route path="/consultaNotas" exact component={ConsultaNotas} />
         <Route path="/certificaciones" exact component={Certificaciones} />
