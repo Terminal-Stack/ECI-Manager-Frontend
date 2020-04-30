@@ -104,16 +104,21 @@ const boton6={
     
 }
 const carta={
-    background:"#489516"
+    
     
 }
 const contenedor={
     flex: 20,
     width: "150%",
-    padding: 6,
-    backgroundColor: '#489516'
+    padding: 6
 }
 const flag = false;
+const fondo={ 
+    backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  }
 export default function ListaServicios() {
 
     
@@ -152,9 +157,10 @@ export default function ListaServicios() {
         e.preventDefault();
         window.location.replace("/horario");
     }
+    
     const classes = useStyles();
     return (
-        <React.Fragment>
+        <React.Fragment >
             <CssBaseline />
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
@@ -166,7 +172,7 @@ export default function ListaServicios() {
                     Desconectarse
                 </Button>
             </AppBar>
-            <main>
+            <main style={fondo}> 
 
 
                 
