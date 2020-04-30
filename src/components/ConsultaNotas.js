@@ -29,6 +29,13 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(4),
     },
 }))
+const fondos={
+    
+    backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  }
 export default function ConsultaNotas() {
 
     
@@ -48,15 +55,16 @@ export default function ConsultaNotas() {
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
-                        Consulta de notas
+                        Consulta de notas 
                     </Typography>
                 </Toolbar>
                 <Button variant="contained" color="secondary" onClick={handleVolver}  >
                     volver
                 </Button>
             </AppBar>
-            <main>
-                <div className={classes.heroContent}>
+            <main >
+            <Container>
+                <div  style={fondos} className={classes.heroContent}>
                     <Container maxWidth="sm">
                         <div className={classes.heroButtons}>
                             <Grid container spacing={1.5} justify="center">
@@ -70,6 +78,7 @@ export default function ConsultaNotas() {
                         </div>
                     </Container>
                 </div>
+                </Container>
             </main>
             <Copyright />
         </React.Fragment>
