@@ -32,7 +32,7 @@ function App() {
         <Route path="/grades" exact component={SemesterGrades} />
         <Route path="/checkout" exact component={Checkout} />
         <Route path="/electivas" exact component={Electivas} />
-        <Route path="/listaServicios" exact component={ListaServicios} />
+        <Route path="/" exact component={ListaServicios} />
         <Route path="/consultaNotas" exact component={ConsultaNotas} />
         <Route path="/certificaciones" exact component={Certificaciones} />
         <PrivateRoute path="/horario" exact component={Horario} />
