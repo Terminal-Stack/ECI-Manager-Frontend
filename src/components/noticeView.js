@@ -35,7 +35,7 @@ function Copyright() {
 }
 function handleVolver(e) {
     e.preventDefault();
-    window.location.replace("/listaServicios");
+    window.location.replace("/");
 }
 
 const useStyles = makeStyles(theme => ({
@@ -82,7 +82,7 @@ export default function Album() {
 
     function handleVolver(e) {
         e.preventDefault();
-        window.location.replace("/listaServicios");
+        window.location.replace("/");
     }
 
     const classes = useStyles();

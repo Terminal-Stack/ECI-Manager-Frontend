@@ -47,7 +47,7 @@ export default function ConsultaNotas() {
 
     function handleVolver(e) {
         e.preventDefault();
-        window.location.replace("/listaServicios");
+        window.location.replace("/");
     }
     function handleNotas(e) {
         e.preventDefault();

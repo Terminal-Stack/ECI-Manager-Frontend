@@ -73,7 +73,7 @@ class Login extends React.Component {
             .then(
                 (response) => {
                     AuthenticationService.registerSuccessfulLogin(this.state.email, response.data.token);
-                    this.props.history.push('/listaServicios');
+                    this.props.history.push('/');
                 },
                 error => this.setState({ error, loading: false })
             );
