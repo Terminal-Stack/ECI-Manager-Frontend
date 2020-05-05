@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import Scrollbar from "react-scrollbars-custom";
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import CargaDatos from '../CargaDatos';
 import axios from "axios";
@@ -39,36 +40,44 @@ function handleVolver(e) {
 }
 
 const useStyles = makeStyles(theme => ({
+    
     icon: {
-
         marginRight: theme.spacing(2),
+        
+        
+        
     },
     heroContent: {
         backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(8, 0, 6),
+        padding: theme.spacing(2, 0, 1),
+        overflow: 'auto',
+  
     },
     heroButtons: {
         marginTop: theme.spacing(4),
+        
     },
     cardGrid: {
-        paddingTop: theme.spacing(8),
-        paddingBottom: theme.spacing(8),
+        paddingTop: theme.spacing(2),
+        marginBottom :'10px', 
+        
     },
     card: {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
+        
     },
     cardMedia: {
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%', // 16:9    
     },
     cardContent: {
-        flexGrow: 1,
+        flexGrow: 2,
     },
     footer: {
-
+        paddingTop: theme.spacing(2),
         backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(6),
+        
     },
 }));
 
@@ -121,9 +130,10 @@ export default function Album() {
             </AppBar>
             <CssBaseline/>
 
-            <main className={classes.center}>
+            <main className={classes.center} >
                 {/* Hero unit */}
-                <div className={classes.heroContent}>
+                <div className={classes.heroContent} >
+                    
                     <Container maxWidth="sm">
                         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                             Noticias
@@ -134,7 +144,7 @@ export default function Album() {
                         </Typography>
 
                     </Container>
-                </div>
+                
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
@@ -166,7 +176,9 @@ export default function Album() {
                             </Grid>
                         ))}
                     </Grid>
+                    
                 </Container>
+                </div>
             </main>
 
             {/* Footer */}
