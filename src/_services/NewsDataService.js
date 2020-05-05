@@ -1,10 +1,15 @@
 import axios from 'axios';
-const API_URL = 'https://eci-manager-backend.herokuapp.com/'
+import { TOKEN_SESSION_ATTRIBUTE_NAME } from "./AuthenticationService";
+const API_URL = 'https://eci-manager-backend.herokuapp.com'
 
 class NewsDataService {
 
     retrieveAllNews() {
-        return axios.get(`${API_URL}/news`);
+        return axios.get(`${API_URL}/news`, {
+            headers: {
+                authorization: sessionStorage.getItem(TOKEN_SESSION_ATTRIBUTE_NAME)
+            }
+        });
     }
 }
 
