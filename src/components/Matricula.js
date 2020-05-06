@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Step from '@material-ui/core/Step';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import TuitionsDataService from '../_services/TuitionsDataService'
 function valid_credit_card(value) {
   // Accept only digits, dashes or spaces
   if (/[^0-9-\s]+/.test(value)) return false;
@@ -46,12 +47,16 @@ export default function PaymentForm() {
   const handleid = (event) => {
     setIdEstudent(event.target.value);
   };
+  function createTuti(){
+    TuitionsDataService.CreateTution(Tution);
+  }
   const handleNext = () => {
     console.log(estados);
     console.log(idEstudent);
     console.log(valor);
     Tution.value=valor;
     Tution.studentCollegeId=idEstudent;
+    createTuti(Tution);
     console.log(Tution);
   };
   
