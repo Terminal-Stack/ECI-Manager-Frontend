@@ -17,7 +17,8 @@
     "react-overflow-scrolling": "^1.0.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "react-scrollbar-js": "^1.0.1"
+    "react-scrollbar-js": "^1.0.1",
+    "react-scrollbars-custom": "^4.0.21"
   },
   "scripts": {
     "start": "react-scripts start",

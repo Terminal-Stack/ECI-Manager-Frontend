@@ -113,7 +113,8 @@ const boton2={
     background:"#F7F7F7",
     width: "200px",
     height :"170px",
-    left : -20
+    left : -20,
+    borderradius: "50px"
 }
 const boton3={
     background:"#F7F7F7",
@@ -156,9 +157,6 @@ const texto={
     marginTop: "10px",
     marginBottom:"10px"
 
-
-
-
 }
 const carta={   
     
@@ -170,7 +168,7 @@ const contenedor={
 }
 const flag = false;
 const fondo={ 
-    
+    backgroundColor: '#EC8F7B ',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat'
