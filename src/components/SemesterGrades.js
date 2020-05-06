@@ -70,15 +70,15 @@ export default function SemesterGrades() {
     window.location.replace("/consultaNotas");
   }
   useEffect(() => {
-    //AuthenticationService.
-      console.log('User '+AuthenticationService.getLoggedInUserName())
+
+    console.log('thisss   '+ AuthenticationService.getLoggedInUserName())
     //GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
-      GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
+    GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
+
       setUser(responseu.data.collegeId);
     })
-    
+    //console.log("usuario"+user)
     GradesDataService.retrieveAllGrades(user).then(response => {
-      //console.log("grades " + JSON.stringify(response)); 
       setNewsF(response.data._embedded.grades);
       
     })
