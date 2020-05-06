@@ -12,6 +12,14 @@ class TuitionsDataService {
             }
         });
     }
+    CreateTution(e){
+        console.log(e);
+        return axios.post(`${API_URL}/tuitions/`,e, {
+            headers: {
+                authorization: sessionStorage.getItem(TOKEN_SESSION_ATTRIBUTE_NAME)
+            }
+        });
+    }
 }
 
 export default new TuitionsDataService()

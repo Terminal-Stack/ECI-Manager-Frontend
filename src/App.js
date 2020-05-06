@@ -18,7 +18,6 @@ import Certificaciones from './components/Certificaciones';
 import PrivateRoute from './components/PrivateRoute';
 import Matricula from './components/Matricula';
 import Horario from './components/Horario';
-import Matricula from './components/Matricula';
 import './App.css';
 
 
