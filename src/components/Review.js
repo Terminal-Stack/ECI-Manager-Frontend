@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
-
-
+import TuitionsDataService from "../_services/TuitionsDataService";
+import AuthenticationService from "../_services/AuthenticationService";
 
 const useStyles = makeStyles(theme => ({
   listItem: {
@@ -22,9 +22,20 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function Review(prop) {
+  const date = new Date()
+  const idFactura= date.getFullYear()+date.getMonth()+date.getDay()+date.getHours()+date.getMinutes()+date.getSeconds()
+  const [price, setPrice] = useState(0);
   const products = [
-    { name: prop.product, price: '$9.99' }
+    { name: prop.product, price: price }
   ];
+  useEffect(() => {
+    TuitionsDataService.retrieveTuition(AuthenticationService.getLoggedInUserName()).then(response => {
+      console.log("tuition " + JSON.stringify(response));
+      setPrice(response.data.value);
+    })
+        .catch(error => console.log("Error retrieving pays " + error));
+    //alert(news.data._embedded.news)
+  });
   const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
   const payments = [
     { name: 'Nombre del propietario ', detail: prop.cardHolder },
