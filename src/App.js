@@ -16,6 +16,7 @@ import ConsultaNotas from './components/ConsultaNotas';
 import Calendar from './components/Calendar'
 import Certificaciones from './components/Certificaciones';
 import PrivateRoute from './components/PrivateRoute';
+import Matricula from './components/Matricula';
 import Horario from './components/Horario';
 import Matricula from './components/Matricula';
 import './App.css';
@@ -37,7 +38,7 @@ function App() {
         <PrivateRoute path="/consultaNotas" exact component={ConsultaNotas} />
         <PrivateRoute path="/certificaciones" exact component={Certificaciones} />
         <PrivateRoute path="/horario" exact component={Horario} />
-        
+        <Route path="/Matricula" exact component={Matricula}/>
       </Switch>
     </Router>
   );
