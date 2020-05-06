@@ -59,7 +59,6 @@ export default function PaymentForm() {
     createTuti(Tution);
     console.log(Tution);
   };
-  
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
