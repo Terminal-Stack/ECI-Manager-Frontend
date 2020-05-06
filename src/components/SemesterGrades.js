@@ -71,8 +71,9 @@ export default function SemesterGrades() {
   }
   useEffect(() => {
     //AuthenticationService.
+      console.log('User '+AuthenticationService.getLoggedInUserName())
     //GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
-      GradesDataService.retrieveStudent('daniel.vela@mail.escuelaing.edu.co').then(responseu =>{
+      GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
       setUser(responseu.data.collegeId);
     })
     
