@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
     },
     footer: {
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: "#FF8484 ",
         padding: theme.spacing(6),
     },
 }));
@@ -71,6 +71,15 @@ const useStyles = makeStyles(theme => ({
 const cards = [1];
 
 export default function Album() {
+    const fondo={ 
+        backgroundColor: '#89D0FF  ',
+        backgroundPosition: 'center',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        height:"auto",
+        
+        
+      };
     
     const myScrollbar = {
         width: 400,
@@ -87,42 +96,23 @@ export default function Album() {
       }
     return (
         
-        <React.Fragment>
+        <React.Fragment >
             
             <AppBar position="relative" color='secondary'>
                 <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
-                        Notas academicas
+                        Calendario Academico
                     </Typography>
                 </Toolbar>
-                <Button variant="contained" color="secondary" onClick={handleLog}  >
-                    Desconectarse
-                </Button>
-                <Button variant="contained" color="secondary" onClick={handleVolver}  >
+                <Button variant="contained" color="primary" onClick={handleVolver}  >
                     volver
                 </Button>
             </AppBar>
             <CssBaseline />
-            <AppBar position="relative" color='secondary'>
-                <Toolbar >
-                    <Typography variant="h6" color="inherit" noWrap>
-                        Sección Actividades Calendario Academico
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <main>
+            
+            <main style={fondo}>
                 {/* Hero unit */}
-                <div className={classes.heroContent}>
-                    <Container maxWidth="sm">
-                        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                            Calendario Academico
-                            </Typography>
-                        <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Aquí encontrará El calendario
-                            </Typography>
-
-                    </Container>
-                </div>
+            
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={1} alignItems="center"
@@ -135,22 +125,6 @@ export default function Album() {
                                         image={Certificaciones}
                                         title="Image title"
                                     />
-                                    <CardContent className={classes.cardContent}>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            Heading
-                                            </Typography>
-                                        <Typography>
-                                            This is a media card. You can use this section to describe the content.
-                                            </Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <Button size="small" color="primary">
-                                            View
-                                            </Button>
-                                        <Button size="small" color="primary">
-                                            Edit
-                                            </Button>
-                                    </CardActions>
                                 </Card>
                             </Grid>
                         ))}
@@ -159,12 +133,8 @@ export default function Album() {
             </main>
             {/* Footer */}
             <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                    </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
-                    </Typography>
+            
+                
                 <Copyright />
             </footer>
             {/* End footer */}

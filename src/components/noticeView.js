@@ -13,13 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import Scrollbar from "react-scrollbars-custom";
-import PerfectScrollbar from 'react-perfect-scrollbar'
-import CargaDatos from '../CargaDatos';
-import axios from "axios";
-import AuthenticationService from "../_services/AuthenticationService";
 import NewsDataService from '../_services/NewsDataService';
 const API_URL = 'http://ec2-54-89-178-141.compute-1.amazonaws.com';
+
 
 
 function Copyright() {
@@ -39,6 +35,7 @@ function handleVolver(e) {
     window.location.replace("/");
 }
 
+  
 const useStyles = makeStyles(theme => ({
     
     icon: {
@@ -48,9 +45,10 @@ const useStyles = makeStyles(theme => ({
         
     },
     heroContent: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(2, 0, 1),
-        overflow: 'auto',
+        backgroundColor: "#89D0FF",
+        padding: theme.spacing(8, 0, 6),
+        overflow:'auto'
+       
   
     },
     heroButtons: {
@@ -58,49 +56,44 @@ const useStyles = makeStyles(theme => ({
         
     },
     cardGrid: {
-        paddingTop: theme.spacing(2),
-        marginBottom :'10px', 
-        
+        paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+    
     },
     card: {
         height: '100%',
         display: 'flex',
-        flexDirection: 'column',
-        
+        flexDirection: 'column',    
     },
     cardMedia: {
         paddingTop: '56.25%', // 16:9    
     },
     cardContent: {
-        flexGrow: 2,
+        flexGrow: 1,
     },
     footer: {
-        paddingTop: theme.spacing(2),
-        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(6),           
+        
         
     },
 }));
-
+const estilo={ 
+    backgroundColor: '#89D0FF  ',
+    backgroundPosition: 'center',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    
+    
+    
+  };
 
 
 const cards = [1,2,3,4,5,6,7,8,9];
 
 export default function Album() {
-
-    const [newsF, setNewsF] = useState([]);
-
-    function handleVolver(e) {
-        e.preventDefault();
-        window.location.replace("/");
-    }
-
     const classes = useStyles();
 
-
-    function handleLog(e) {
-        e.preventDefault();
-        window.location.replace("/login");
-    }
+    const [newsF, setNewsF] = useState([]);
 
     useEffect(() => {
         NewsDataService.retrieveAllNews().then(response => {
@@ -108,44 +101,29 @@ export default function Album() {
             setNewsF(response.data._embedded.news);
         })
             .catch(error => console.log("Error retrieving news " + error));
-        //alert(news.data._embedded.news)
+        
     });
 
-
-
-    return (
+        return (
+            
         <React.Fragment>
-            <AppBar position="relative" color='secondary'>
+            <CssBaseline/>
+            <AppBar position="relative" color='secondary' >
                 <Toolbar>
                     <Typography variant="h6" color="inherit" noWrap>
                         Sección Noticias
                     </Typography>
                 </Toolbar>
-                <Button variant="contained" color="secondary" onClick={handleLog}>
-                    Desconectarse
-                </Button>
-                <Button variant="contained" color="secondary" onClick={handleVolver}>
+                <Button variant="contained" color="primary" onClick={handleVolver}>
                     volver
                 </Button>
             </AppBar>
-            <CssBaseline/>
-
+            
+            
             <main className={classes.center} >
                 {/* Hero unit */}
-                <div className={classes.heroContent} >
-                    
-                    <Container maxWidth="sm">
-                        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                            Noticias
-
-                        </Typography>
-                        <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Aquí encontrará las noticias que son de interes para la comunidad.
-                        </Typography>
-
-                    </Container>
-                
-                <Container className={classes.cardGrid} maxWidth="md">
+                <div className={classes.heroContent}  >
+                <Container className={classes.cardGrid} maxWidth="md" style={estilo} >
                     {/* End hero unit */}
                     <Grid container spacing={4}>
                         {newsF.map(card => (
@@ -180,12 +158,12 @@ export default function Album() {
                 </Container>
                 </div>
             </main>
+            
 
             {/* Footer */}
             <footer className={classes.footer}>
                 <Typography variant="h6" align="center" gutterBottom>
                     Footer
-
                 </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
                     Sección de noticias Escuela Colombiana de Ingenieria Julio Garavito
@@ -194,7 +172,7 @@ export default function Album() {
             </footer>
             {/* End footer */}
 
-
-        </React.Fragment>
+            </React.Fragment>
     );
+                        
 }

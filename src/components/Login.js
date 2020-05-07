@@ -82,7 +82,7 @@ class Login extends React.Component {
                     this.props.history.push('/');
                 },
                
-                error => this.setState({ error, loading: false,modal:true,}, alert('contraseña invalida') )
+                error => this.setState({ error, loading: false,modal:true,}, alert('Credenciales invalidas') )
             );
     }
     

@@ -8,12 +8,9 @@ import Step from '@material-ui/core/Step';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import TuitionsDataService from '../_services/TuitionsDataService'
-<<<<<<< HEAD
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { colors } from '@material-ui/core';
-=======
->>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
 function valid_credit_card(value) {
   // Accept only digits, dashes or spaces
   if (/[^0-9-\s]+/.test(value)) return false;
@@ -57,10 +54,9 @@ export default function PaymentForm() {
   function createTuti(){
     TuitionsDataService.CreateTution(Tution);
   }
-<<<<<<< HEAD
-  function handleLog(e) {
+  function handleVolver(e) {
     e.preventDefault();
-    window.location.replace("/ListaServicios");
+    window.location.replace("/");
 }
 const styles = theme => ({
   multilineColor:{
@@ -75,8 +71,6 @@ const styles = theme => ({
 });
 
   
-=======
->>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
   const handleNext = () => {
     console.log(estados);
     console.log(idEstudent);
@@ -86,7 +80,6 @@ const styles = theme => ({
     createTuti(Tution);
     console.log(Tution);
   };
-<<<<<<< HEAD
   const fondo={ 
     backgroundColor: '#89D0FF  ',
     backgroundPosition: 'center',
@@ -110,7 +103,6 @@ const styles = theme => ({
     color:" #EBF4FA" ,
     fontweight: "bold",
     fontFamily: "cursive",
-    fontcolor:"red"
   }
   const botonEnv={
     left:15,
@@ -125,7 +117,7 @@ const styles = theme => ({
                         PAGO DE MATRICULA
                     </Typography>
                 </Toolbar>
-                <Button variant="contained" style={boton0} color="secondary" onClick={handleLog}  >
+                <Button variant="contained" style={boton0} color="secondary" onClick={handleVolver}  >
                     Volver
                 </Button>
             </AppBar>
@@ -135,27 +127,13 @@ const styles = theme => ({
       <Grid container spacing={3}>
         <Grid item xs={12} md={6} style={prueba}>
           <TextField onChange={handleid} required id="cardName" label=" Carnet Estudiante " fullWidth style={prueba} />
-=======
-  return (
-    <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Pago Matricula
-      </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <TextField onChange={handleid} required id="cardName" label=" Carnet Estudiante " fullWidth />
->>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField id="expDate" label={'FECHA : ' + '' + '' + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()} fullWidth disabled />
 
         </Grid>
         <Grid item xs={12} md={6}>
-<<<<<<< HEAD
           <TextField required onChange={handlevalor} id="cardNumber" label="Valor a pagar" fullWidth style={prueba}/>
-=======
-          <TextField required onChange={handlevalor} id="cardNumber" label="Valor a pagar" fullWidth />
->>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
           {valid_credit_card()}
         </Grid>
 
@@ -174,14 +152,9 @@ const styles = theme => ({
             variant="contained"
             color="primary"
             onClick={handleNext}
-<<<<<<< HEAD
             style={botonEnv}
           >
             pagar
-=======
-
-          >
->>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
 
           </Button>
         </Grid>
