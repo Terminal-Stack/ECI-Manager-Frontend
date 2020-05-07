@@ -22,20 +22,12 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function Review(prop) {
-  const date = new Date()
-  const idFactura= date.getFullYear()+date.getMonth()+date.getDay()+date.getHours()+date.getMinutes()+date.getSeconds()
-  const [price, setPrice] = useState(0);
+
+
   const products = [
-    { name: prop.product, price: price }
+    { name: prop.product, price: prop.price }
   ];
-  useEffect(() => {
-    TuitionsDataService.retrieveTuition(AuthenticationService.getLoggedInUserName()).then(response => {
-      console.log("tuition " + JSON.stringify(response));
-      setPrice(response.data.value);
-    })
-        .catch(error => console.log("Error retrieving pays " + error));
-    //alert(news.data._embedded.news)
-  });
+
   const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
   const payments = [
     { name: 'Nombre del propietario ', detail: prop.cardHolder },
