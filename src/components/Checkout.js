@@ -17,7 +17,7 @@ import TuitionsDataService from "../_services/TuitionsDataService";
 import AuthenticationService from "../_services/AuthenticationService";
 import GradesDataService from "../_services/GradesDataService";
 import PenaltyDataService from "../_services/PenaltyDataService";
-import InvoiceDataServices from "../_services/InvoiceDataServices";
+import InvoiceDataServices from "../_services/InvoiceDataService";
 
 
 function Copyright() {
@@ -122,19 +122,19 @@ export default function Checkout() {
     })
   });
   function createInvoice(e){
-    console.log(e)
+    //console.log(e)
     InvoiceDataServices.postInvoice(e)
   }
   function postInvoic(){
     alert("Entraa")
     var invoice = {
-      //"_id" : null,
+      "id" : null,
       "value": null,
       "description": null,
       "date": null,
       "studentId":null
     }
-    //invoice.id = idFactura
+    invoice.id = idFactura
     invoice.value = price
     invoice.studentId=carnet
     invoice.description="Pago de "+product
