@@ -31,16 +31,20 @@ const useStyles = makeStyles(theme => ({
 }))
 const fondos = {
 
-    backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
+    //backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",
+    //backgroundPosition: 'center',
+    //backgroundSize: 'cover',
+    //backgroundRepeat: 'no-repeat'
 }
 const boton ={
     background:"#81d8d0",
     width: "100%",
     height :"50px",
 };
+const divi= {
+    width: "100%",
+    height :"550px",
+  }
 export default function ConsultaNotas() {
 
 
@@ -57,7 +61,7 @@ export default function ConsultaNotas() {
 
     return (
         <React.Fragment>
-            <AppBar position="relative" color='secondary'>
+            <AppBar position="relative"  color='primary'>
                 <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
                         Consulta de notas
@@ -65,8 +69,8 @@ export default function ConsultaNotas() {
                 </Toolbar>
 
             </AppBar>
-            <main >
-                <Container>
+            <main style={divi}>
+                <Container >
                     <div style={fondos} className={classes.heroContent}>
                         <Container >
                             <div className={classes.heroButtons}>
@@ -83,9 +87,6 @@ export default function ConsultaNotas() {
                                 <br></br>
                                 <br></br>
                                 <br></br>
-                                <br></br>
-                                <br></br>
-                                <br></br>
                                 <Grid container spacing={1.5} justify="center">
 
                                     <Grid item>
@@ -94,13 +95,7 @@ export default function ConsultaNotas() {
                                         </Button>
                                     </Grid>
                                 </Grid>
-                                <br></br>
-                                <br></br>
-                                <br></br>
-                                <br></br>
-                                <br></br>
-                                <br></br>
-                                <br></br>
+                                
                                 
                                 
 
