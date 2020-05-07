@@ -183,6 +183,13 @@ export default function Checkout() {
     e.preventDefault();
     window.location.replace("/");
   }
+  const fondo={ 
+    backgroundColor: '#89D0FF  ',
+    backgroundPosition: 'center',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    height:"1000px",  
+  };
   return (
     <React.Fragment>
       <AppBar position="relative" color='secondary'>
@@ -191,13 +198,13 @@ export default function Checkout() {
             Certificados
           </Typography>
         </Toolbar>
-        <Button variant="contained" color="secondary" onClick={handleVolver}  >
+        <Button variant="contained" color="primary" onClick={handleVolver}  >
           volver
                 </Button>
       </AppBar>
       <CssBaseline />
 
-      <main className={classes.layout}>
+      <main className={classes.layout} >
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
             Pagos
