@@ -25,8 +25,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/news" exact component={Album} />
-        <Route path="/calendar" exact component={Calendar} />
+        <PrivateRoute path="/news" exact component={Album} />
+        <PrivateRoute path="/calendar" exact component={Calendar} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/matricula" component={Matricula}/>
