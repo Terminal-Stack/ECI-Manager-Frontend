@@ -14,24 +14,24 @@ import { colors } from '@material-ui/core';
 function valid_credit_card(value) {
   // Accept only digits, dashes or spaces
   if (/[^0-9-\s]+/.test(value)) return false;
-
+ 
   // The Luhn Algorithm. It's so pretty.
   let nCheck = 0, bEven = false;
   value = value.replace(/\D/g, "");
-
+ 
   for (var n = value.length - 1; n >= 0; n--) {
     var cDigit = value.charAt(n),
       nDigit = parseInt(cDigit, 10);
-
+ 
     if (bEven && (nDigit *= 2) > 9) nDigit -= 9;
-
+ 
     nCheck += nDigit;
     bEven = !bEven;
   }
-
+ 
   return (nCheck % 10) == 0;
 }
-
+ 
 export default function PaymentForm() {
   const Tution={
     "value":null,
@@ -54,7 +54,11 @@ export default function PaymentForm() {
   function createTuti(){
     TuitionsDataService.CreateTution(Tution);
   }
+<<<<<<< HEAD
   function handleVolver(e) {
+=======
+  function handleLog(e) {
+>>>>>>> a3cd23ee84e4e20b7e26a50b432c056404345165
     e.preventDefault();
     window.location.replace("/");
 }
@@ -69,7 +73,7 @@ const styles = theme => ({
     color: "white"
   }
 });
-
+ 
   
   const handleNext = () => {
     console.log(estados);
@@ -130,13 +134,13 @@ const styles = theme => ({
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField id="expDate" label={'FECHA : ' + '' + '' + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()} fullWidth disabled />
-
+ 
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField required onChange={handlevalor} id="cardNumber" label="Valor a pagar" fullWidth style={prueba}/>
           {valid_credit_card()}
         </Grid>
-
+ 
         <Grid item xs={12} md={6}>
           <TextField
             required
@@ -155,7 +159,11 @@ const styles = theme => ({
             style={botonEnv}
           >
             pagar
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> a3cd23ee84e4e20b7e26a50b432c056404345165
           </Button>
         </Grid>
       </Grid>

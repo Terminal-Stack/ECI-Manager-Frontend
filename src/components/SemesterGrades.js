@@ -56,6 +56,11 @@ const rows = [
   createData('AREP', 35, 40, 41, 39),
   createData('HCOL', 46, 45, 35, 41)
 ]
+const boton0 ={
+  background:"#0D3EF4",
+  width: "100%",
+  height :"100%"
+};
 
 export default function SemesterGrades() {
   const [newsF, setNewsF] = useState([]);
@@ -70,8 +75,8 @@ export default function SemesterGrades() {
     window.location.replace("/consultaNotas");
   }
   useEffect(() => {
+    //AuthenticationService.
 
-    console.log('thisss   '+ AuthenticationService.getLoggedInUserName())
     //GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
     GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
 
@@ -86,16 +91,16 @@ export default function SemesterGrades() {
   });
   return (
     <TableContainer component={Paper}>
-      <AppBar position="relative" color='secondary'>
+      <AppBar position="relative"  color='primary'>
         <Toolbar >
           <Typography variant="h6" color="inherit" noWrap>
             Notas academicas
                     </Typography>
         </Toolbar>
-        <Button variant="contained" color="secondary" onClick={handleLog}  >
+        <Button variant="contained" style={boton0} color="secondary" onClick={handleLog}  >
           Desconectarse
                 </Button>
-        <Button variant="contained" color="secondary" onClick={handleVolver}  >
+        <Button variant="contained"  style={boton0} color="secondary" onClick={handleVolver}  >
           volver
                 </Button>
       </AppBar>

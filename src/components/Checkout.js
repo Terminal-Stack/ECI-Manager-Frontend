@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,6 +13,10 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressFrom';
 import PaymentForm from './PaymentFrom';
 import Review from './Review';
+import TuitionsDataService from "../_services/TuitionsDataService";
+import AuthenticationService from "../_services/AuthenticationService";
+import GradesDataService from "../_services/GradesDataService";
+import PenaltyDataService from "../_services/PenaltyDataService";
 
 
 function Copyright() {
@@ -77,8 +81,45 @@ export default function Checkout() {
   const [owner, setOwner] = useState('');
   const [cardCVV, setCVV] = useState('');
   const [cardHolder, setCardHolder] = useState('');
+  const [price, setPrice] = useState(0);
+  const [carnet, setCarnet] = useState(0);
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+
+  const matricula = function (){
+    TuitionsDataService.retrieveTuition(carnet).then(response => {
+      console.log("tuition " + JSON.stringify(response));
+      setPrice(response.data.value);
+    })
+        .catch(error => console.log("Error retrieving pays " + error));
+  }
+  const penalty = function (){
+    PenaltyDataService.retrievePenaltyValue(carnet).then(response => {
+      console.log("penalty " + JSON.stringify(response));
+      setPrice(response.data.value);
+    })
+        .catch(error => console.log("Error retrieving pays " + error));
+  }
+  //Hay que hacer el del certificado y el de las multas
+  useEffect(() => {
+    GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
+      setCarnet(responseu.data.collegeId);
+      //If en el que llame una funcion dependiendo del valor escogido
+      if(product === "Matricula"){
+        matricula()
+      }
+      else if(product === "Multa biblioteca"){
+        penalty()
+      }
+      else if(product === "Certificaciones"){
+
+      }
+      else{
+        console.log("Nada")
+      }
+    })
+  });
+
   const func =  function getStepContent(step) {
     switch (step) {
       case 0:
@@ -88,6 +129,7 @@ export default function Checkout() {
                             cardExpiry={cardExpiry} setCardExpiry={setCardExpiry.bind(this)}
                             cardCVV={cardCVV} setCVV={setCVV.bind(this)}
                             cardHolder={cardHolder} setCardHolder={setCardHolder.bind(this)}
+                            price= {price}
         />;
       case 2:
         return <Review product= {product}
@@ -100,6 +142,9 @@ export default function Checkout() {
         throw new Error('Unknown step');
     }
   }
+  const date = new Date()
+  const idFactura= date.getFullYear()+""+date.getMonth()+""+date.getDay()+""+date.getHours()+""+date.getMinutes()+""+date.getSeconds()
+
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -144,9 +189,7 @@ export default function Checkout() {
                   Gracias por su pago.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Su número de factura es {} 
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                  Su número de factura es #{idFactura}. Su pago quedo registrado.
                 </Typography>
               </React.Fragment>
             ) : (
