@@ -54,9 +54,13 @@ export default function PaymentForm() {
   function createTuti(){
     TuitionsDataService.CreateTution(Tution);
   }
+<<<<<<< HEAD
+  function handleVolver(e) {
+=======
   function handleLog(e) {
+>>>>>>> a3cd23ee84e4e20b7e26a50b432c056404345165
     e.preventDefault();
-    window.location.replace("/ListaServicios");
+    window.location.replace("/");
 }
 const styles = theme => ({
   multilineColor:{
@@ -117,7 +121,7 @@ const styles = theme => ({
                         PAGO DE MATRICULA
                     </Typography>
                 </Toolbar>
-                <Button variant="contained" style={boton0} color="secondary" onClick={handleLog}  >
+                <Button variant="contained" style={boton0} color="secondary" onClick={handleVolver}  >
                     Volver
                 </Button>
             </AppBar>
@@ -155,7 +159,11 @@ const styles = theme => ({
             style={botonEnv}
           >
             pagar
+<<<<<<< HEAD
+
+=======
  
+>>>>>>> a3cd23ee84e4e20b7e26a50b432c056404345165
           </Button>
         </Grid>
       </Grid>

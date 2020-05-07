@@ -60,14 +60,14 @@ export default function SemesterGrades() {
   }
   function handleVolver(e) {
     e.preventDefault();
-    window.location.replace("/consultaNotas");
+    window.location.replace("/");
   }
   return (
     <TableContainer component={Paper}>
       <AppBar position="relative" color='secondary'>
         <Toolbar >
           <Typography variant="h6" color="inherit" noWrap>
-            Notas academicas
+            Horario Academico
                     </Typography>
         </Toolbar>
         <Button variant="contained" color="secondary" onClick={handleLog}  >
