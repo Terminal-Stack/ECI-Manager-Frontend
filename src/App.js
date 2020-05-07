@@ -18,6 +18,7 @@ import Certificaciones from './components/Certificaciones';
 import PrivateRoute from './components/PrivateRoute';
 import Matricula from './components/Matricula';
 import Horario from './components/Horario';
+import Matricula from './components/Matricula';
 import './App.css';
 
 
@@ -25,8 +26,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <PrivateRoute path="/news" exact component={Album} />
-        <PrivateRoute path="/calendar" exact component={Calendar} />
+        <Route path="/news" exact component={Album} />
+        <Route path="/calendar" exact component={Calendar} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <PrivateRoute path="/tuition" exact component={Matricula}/>

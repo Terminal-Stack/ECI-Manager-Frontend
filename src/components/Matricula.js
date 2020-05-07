@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Toolbar from "@material-ui/core/Toolbar";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Step from '@material-ui/core/Step';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import TuitionsDataService from '../_services/TuitionsDataService'
+<<<<<<< HEAD
+import AppBar from "@material-ui/core/AppBar";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { colors } from '@material-ui/core';
+=======
+>>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
 function valid_credit_card(value) {
   // Accept only digits, dashes or spaces
   if (/[^0-9-\s]+/.test(value)) return false;
@@ -50,6 +57,26 @@ export default function PaymentForm() {
   function createTuti(){
     TuitionsDataService.CreateTution(Tution);
   }
+<<<<<<< HEAD
+  function handleLog(e) {
+    e.preventDefault();
+    window.location.replace("/ListaServicios");
+}
+const styles = theme => ({
+  multilineColor:{
+      color:'red'
+  },
+  root: {
+    background: "black"
+  },
+  input: {
+    color: "white"
+  }
+});
+
+  
+=======
+>>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
   const handleNext = () => {
     console.log(estados);
     console.log(idEstudent);
@@ -59,6 +86,56 @@ export default function PaymentForm() {
     createTuti(Tution);
     console.log(Tution);
   };
+<<<<<<< HEAD
+  const fondo={ 
+    backgroundColor: '#89D0FF  ',
+    backgroundPosition: 'center',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    height:"1000px",
+    
+    
+  };
+  const boton0 ={
+    background:"#0D3EF4",
+    width: "100%",
+    height :"100%"
+};
+  const typografia={
+    fontweight: "bold",
+    fontFamily: "cursive",
+  };
+  const prueba={
+    left:15,
+    color:" #EBF4FA" ,
+    fontweight: "bold",
+    fontFamily: "cursive",
+    fontcolor:"red"
+  }
+  const botonEnv={
+    left:15,
+    
+  }
+  return (
+    <React.Fragment>
+      <CssBaseline />
+            <AppBar position="relative" color='secondary'>
+                <Toolbar >
+                    <Typography variant="h6" color="inherit" noWrap>
+                        PAGO DE MATRICULA
+                    </Typography>
+                </Toolbar>
+                <Button variant="contained" style={boton0} color="secondary" onClick={handleLog}  >
+                    Volver
+                </Button>
+            </AppBar>
+      <body style={fondo}>
+ 
+      
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6} style={prueba}>
+          <TextField onChange={handleid} required id="cardName" label=" Carnet Estudiante " fullWidth style={prueba} />
+=======
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -67,13 +144,18 @@ export default function PaymentForm() {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <TextField onChange={handleid} required id="cardName" label=" Carnet Estudiante " fullWidth />
+>>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField id="expDate" label={'FECHA : ' + '' + '' + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()} fullWidth disabled />
 
         </Grid>
         <Grid item xs={12} md={6}>
+<<<<<<< HEAD
+          <TextField required onChange={handlevalor} id="cardNumber" label="Valor a pagar" fullWidth style={prueba}/>
+=======
           <TextField required onChange={handlevalor} id="cardNumber" label="Valor a pagar" fullWidth />
+>>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
           {valid_credit_card()}
         </Grid>
 
@@ -92,12 +174,19 @@ export default function PaymentForm() {
             variant="contained"
             color="primary"
             onClick={handleNext}
+<<<<<<< HEAD
+            style={botonEnv}
+          >
+            pagar
+=======
 
           >
+>>>>>>> ca1cfc86d3ac1493f0bde35a2ee8f9de8a717886
 
           </Button>
         </Grid>
       </Grid>
+      </body>
     </React.Fragment>
   );
 }

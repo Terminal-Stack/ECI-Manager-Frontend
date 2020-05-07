@@ -65,7 +65,7 @@ const boton0 ={
 };
 const boton ={
     bottom:"-53px",
-    background:"#F7F7F7",
+    background:"#EBF4FA ",
     marginLeft: "1px",
     width: "200px",
     height :"170px",
@@ -99,7 +99,7 @@ const boton1={
     boxshadow: "0 10px #999",
     left:"10px",
     top:"-150px",
-    background:"#F7F7F7",
+    background:"#EBF4FA ",
     width: "200px",
     height :"170px",
     left : -22,
@@ -110,13 +110,14 @@ const boton2={
     
     top:"-352px",
     marginLeft:"450px",
-    background:"#F7F7F7",
+    background:"#EBF4FA ",
     width: "200px",
     height :"170px",
-    left : -20
+    left : -20,
+    borderradius: "50px"
 }
 const boton3={
-    background:"#F7F7F7",
+    background:"#EBF4FA ",
     width: "200px",
     height :"170px",
     left : -20
@@ -124,13 +125,13 @@ const boton3={
 const boton4={
     top:"-352px",
     marginLeft: "-353px",
-    background:"#81d8d0",
+    background:"#EBF4FA ",
     width: "200px",
     height :"170px",
     background:"#F7F7F7",
 }
 const boton5={
-    background:"#F7F7F7",
+    background:"#EBF4FA ",
     top:"-555px",
     marginLeft: "-49px",
     width: "200px",
@@ -144,7 +145,7 @@ const boton6={
     height: "40px", 
     width: "200px",
     height :"170px",
-    background:"#F7F7F7",
+    background:"#EBF4FA ",
     
     left : -20
 }
@@ -155,9 +156,6 @@ const texto={
     fontFamily: "cursive",
     marginTop: "10px",
     marginBottom:"10px"
-
-
-
 
 }
 const carta={   
@@ -170,9 +168,9 @@ const contenedor={
 }
 const flag = false;
 const fondo={ 
-    
+    backgroundColor: '#89D0FF  ',
     backgroundPosition: 'center',
-    backgroundSize: 'cover',
+    backgroundSize: 'auto',
     backgroundRepeat: 'no-repeat'
   }
 export default function ListaServicios() {
@@ -218,7 +216,7 @@ export default function ListaServicios() {
     return (
         <React.Fragment >
             <CssBaseline />
-            <AppBar position="relative" color='primary'>
+            <AppBar position="relative" color='secondary'>
                 <Toolbar >
                     <Typography variant="h6" color="inherit" noWrap>
                         Lista de servicios Escuela Colombiana de Ingeniería Julio Garavito.
