@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressFrom';
 import PaymentForm from './PaymentFrom';
 import Review from './Review';
+
 
 function Copyright() {
   return (
@@ -66,23 +67,39 @@ const useStyles = makeStyles(theme => ({
 
 const steps = ['Información pago', 'Detalles de pago', 'Resumen pago'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
+
+
 
 export default function Checkout() {
+  const [product, setProduct] = useState('');
+  const [cardNumber, setCardNumber] = useState(0);
+  const [cardExpiry, setCardExpiry] = useState('');
+  const [owner, setOwner] = useState('');
+  const [cardCVV, setCVV] = useState('');
+  const [cardHolder, setCardHolder] = useState('');
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-
+  const func =  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return <AddressForm product= {product} setProduct={setProduct.bind(this)} owner={owner} setOwner={setOwner.bind(this)}/>;
+      case 1:
+        return <PaymentForm cardNumber={cardNumber} setCardInfo={setCardNumber.bind(this)}
+                            cardExpiry={cardExpiry} setCardExpiry={setCardExpiry.bind(this)}
+                            cardCVV={cardCVV} setCVV={setCVV.bind(this)}
+                            cardHolder={cardHolder} setCardHolder={setCardHolder.bind(this)}
+        />;
+      case 2:
+        return <Review product= {product}
+                       owner={owner}
+                       cardNumber={cardNumber}
+                       cardExpiry={cardExpiry}
+                       cardCVV={cardCVV}
+                       cardHolder={cardHolder}/>;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -92,7 +109,7 @@ export default function Checkout() {
   };
   function handleVolver(e) {
     e.preventDefault();
-    window.location.replace("/listaServicios");
+    window.location.replace("/");
   }
   return (
     <React.Fragment>
@@ -124,16 +141,17 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
+                  Gracias por su pago.
                 </Typography>
                 <Typography variant="subtitle1">
+                  Su número de factura es {} 
                   Your order number is #2001539. We have emailed your order confirmation, and will
                   send you an update when your order has shipped.
                 </Typography>
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {func(activeStep)}
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>

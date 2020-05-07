@@ -55,7 +55,7 @@ export default function CustomizedTables() {
     }
     function handleVolver(e) {
         e.preventDefault();
-        window.location.replace("/listaServicios");
+        window.location.replace("/");
     }
     return (
 

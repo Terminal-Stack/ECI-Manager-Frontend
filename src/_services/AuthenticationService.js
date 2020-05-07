@@ -1,6 +1,7 @@
 import axios from 'axios'
-const API_URL = 'http://localhost'
+const API_URL = 'https://eci-manager-backend.herokuapp.com'
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
+export const TOKEN_SESSION_ATTRIBUTE_NAME = 'token'
 
 class AuthenticationService {
 
@@ -17,11 +18,13 @@ class AuthenticationService {
 
     registerSuccessfulLogin(username, token) {
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
-        this.setupAxiosInterceptors(this.createJwtToken(token))
+        sessionStorage.setItem(TOKEN_SESSION_ATTRIBUTE_NAME, this.createJwtToken(token))
+        // this.setupAxiosInterceptors(this.createJwtToken(token))
     }
 
     logout() {
         sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+        sessionStorage.removeItem(TOKEN_SESSION_ATTRIBUTE_NAME);
     }
 
     isUserLoggedIn() {

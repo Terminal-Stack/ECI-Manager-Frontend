@@ -2,17 +2,19 @@ import axios from 'axios';
 import { TOKEN_SESSION_ATTRIBUTE_NAME } from "./AuthenticationService";
 const API_URL = 'https://eci-manager-backend.herokuapp.com'
 
-class GradesDataService {
 
-    retrieveAllGrades(e) {
-        return axios.get(`${API_URL}/grades/` + e, {
+class TuitionsDataService {
+
+    retrieveTuition(e){
+        return axios.get(`${API_URL}/tuitions/`+ e, {
             headers: {
                 authorization: sessionStorage.getItem(TOKEN_SESSION_ATTRIBUTE_NAME)
             }
         });
     }
-    retrieveStudent(e){
-        return axios.get(`${API_URL}/students/`+ e, {
+    CreateTution(e){
+        console.log(e);
+        return axios.post(`${API_URL}/tuitions/`,e, {
             headers: {
                 authorization: sessionStorage.getItem(TOKEN_SESSION_ATTRIBUTE_NAME)
             }
@@ -20,4 +22,4 @@ class GradesDataService {
     }
 }
 
-export default new GradesDataService()
+export default new TuitionsDataService()
