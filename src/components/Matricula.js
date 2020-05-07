@@ -54,11 +54,7 @@ export default function PaymentForm() {
   function createTuti(){
     TuitionsDataService.CreateTution(Tution);
   }
-<<<<<<< HEAD
   function handleVolver(e) {
-=======
-  function handleLog(e) {
->>>>>>> a3cd23ee84e4e20b7e26a50b432c056404345165
     e.preventDefault();
     window.location.replace("/");
 }
@@ -159,11 +155,7 @@ const styles = theme => ({
             style={botonEnv}
           >
             pagar
-<<<<<<< HEAD
-
-=======
  
->>>>>>> a3cd23ee84e4e20b7e26a50b432c056404345165
           </Button>
         </Grid>
       </Grid>
