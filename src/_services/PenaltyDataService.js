@@ -5,7 +5,7 @@ const API_URL = 'https://eci-manager-backend.herokuapp.com'
 class PenaltyDataService {
 
     retrievePenaltyValue(e) {
-        return axios.get(`${API_URL}/students/penalty/`+e, {
+        return axios.get(`${API_URL}/students/`+e, {
             headers: {
                 authorization: sessionStorage.getItem(TOKEN_SESSION_ATTRIBUTE_NAME)
             }
