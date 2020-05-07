@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(8, 0, 6),
     }, heroButtons: {
-        marginTop: theme.spacing(4),
+        marginTop: theme.spacing(6),
     },
 }))
 const fondos = {
@@ -38,12 +38,15 @@ const fondos = {
 }
 const boton ={
     background:"#81d8d0",
-    width: "100%",
-    height :"50px",
+    width: "300x",
+    height :"60px",
+    top:"200px"
+    
 };
 const divi= {
     width: "100%",
-    height :"550px",
+    backgroundColor: '#89D0FF  ',
+    height :"800px",
   }
 export default function ConsultaNotas() {
 
@@ -71,10 +74,10 @@ export default function ConsultaNotas() {
             </AppBar>
             <main style={divi}>
                 <Container >
-                    <div style={fondos} className={classes.heroContent}>
+                    
                         <Container >
                             <div className={classes.heroButtons}>
-                                <Grid container spacing={1.5} justify="center">
+                                <Grid container spacing={2} justify="center">
 
                                     <Grid item>
                                         <Button variant="contained" style={boton} color="secondary" onClick={handleNotas}>
@@ -87,7 +90,7 @@ export default function ConsultaNotas() {
                                 <br></br>
                                 <br></br>
                                 <br></br>
-                                <Grid container spacing={1.5} justify="center">
+                                <Grid container spacing={2} justify="center">
 
                                     <Grid item>
                                         <Button variant="contained" style={boton} color="secondary" onClick={handleVolver}  >
@@ -101,7 +104,7 @@ export default function ConsultaNotas() {
 
                             </div>
                         </Container>
-                    </div>
+                   
                 </Container>
             </main>
             <Copyright />

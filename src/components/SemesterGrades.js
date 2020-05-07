@@ -49,13 +49,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const rows = [
-  createData('ARSW', 45, 25, 32, 34),
-  createData('SPTI', 31, 32, 35, 32),
-  createData('ENG4', 45, 42, 47, 45),
-  createData('AREP', 35, 40, 41, 39),
-  createData('HCOL', 46, 45, 35, 41)
-]
+
 const boton0 ={
   background:"#0D3EF4",
   width: "100%",
@@ -63,6 +57,7 @@ const boton0 ={
 };
 
 export default function SemesterGrades() {
+  const index=0;
   const [newsF, setNewsF] = useState([]);
   const [user,setUser]=useState();
   const classes = useStyles();
@@ -71,6 +66,7 @@ export default function SemesterGrades() {
     window.location.replace("/login");
   }
   function handleVolver(e) {
+    
     e.preventDefault();
     window.location.replace("/consultaNotas");
   }
@@ -114,14 +110,14 @@ export default function SemesterGrades() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {newsF.map(row => (
-            <StyledTableRow key={row.subject}>
+          {newsF.map((user,idx) => (
+            <StyledTableRow user={user} key={user.id}>
               <StyledTableCell component="th" scope="row">
-                {row.subject}
+                {user.subject}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.semester}</StyledTableCell>
-              <StyledTableCell align="right">{row.term}</StyledTableCell>
-              <StyledTableCell align="right">{row.grade}</StyledTableCell>
+              <StyledTableCell align="right">{user.semester}</StyledTableCell>
+              <StyledTableCell align="right">{user.term}</StyledTableCell>
+              <StyledTableCell align="right">{user.grade}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

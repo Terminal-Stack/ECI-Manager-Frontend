@@ -3,6 +3,7 @@ body {
   margin: 0;
   height: 100%;
   overflow: auto;
+  background-color: '#89D0FF  ',
 }
 
 .container {
