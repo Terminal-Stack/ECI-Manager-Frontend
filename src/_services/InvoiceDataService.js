@@ -2,7 +2,7 @@ import axios from 'axios';
 import { TOKEN_SESSION_ATTRIBUTE_NAME } from "./AuthenticationService";
 const API_URL = 'https://eci-manager-backend.herokuapp.com'
 
-class InvoiceDataServices{
+class InvoiceDataService{
 
     retrieveAllInvoices() {
         return axios.get(`${API_URL}/invoices`, {
@@ -21,4 +21,4 @@ class InvoiceDataServices{
     }
 }
 
-export default new InvoiceDataServices()
+export default new InvoiceDataService()
