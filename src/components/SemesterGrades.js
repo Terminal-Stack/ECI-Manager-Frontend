@@ -105,7 +105,6 @@ export default function SemesterGrades() {
           <TableRow>
             <StyledTableCell>Subject</StyledTableCell>
             <StyledTableCell align="right">semester</StyledTableCell>
-            <StyledTableCell align="right">Term</StyledTableCell>
             <StyledTableCell align="right">grade</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -116,7 +115,6 @@ export default function SemesterGrades() {
                 {user.subject}
               </StyledTableCell>
               <StyledTableCell align="right">{user.semester}</StyledTableCell>
-              <StyledTableCell align="right">{user.term}</StyledTableCell>
               <StyledTableCell align="right">{user.grade}</StyledTableCell>
             </StyledTableRow>
           ))}
