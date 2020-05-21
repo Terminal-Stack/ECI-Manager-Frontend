@@ -24,33 +24,39 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function createData(subject, firstTerm, secondTerm, thirdTerm, total) {
-  return { subject, firstTerm, secondTerm, thirdTerm, total };
+function createData(subject, lunes, martes, miercoles, jueves,viernes) {
+  return { subject, lunes, martes, miercoles, jueves,viernes };
 }
 
 const rows = [
-  createData('700-730'),
-  createData('730-800'),
-  createData('800-830'),
-  createData('830-900'),
-  createData('900-930'),
-  createData('930-10'),
-  createData('1000-1030'),
-  createData('1030-1100'),
-  createData('1100-1130'),
-  createData('1130-1200'),
-  createData('1200-1230'),
-  createData('1230-1000'),
-  createData('1000-1300'),
-  createData('1300-1330'),
-  createData('1330-1400'),
-  createData('1400-1430'),
-  createData('1430-1500'),
-  createData('1500-1530'),
-  createData('1530-1600'),
-  createData('1600-1630'),
-  createData('1630-1700')
+  createData('700-730' , 'ARSW','','ALLI','',''),
+  createData('730-800', 'ARSW','','ALLI','',''),
+  createData('800-830','ARSW ',' ','ALLI','',''),
+  createData('830-900',''  ,'TPRO','ALLI','',''), 
+  createData('900-930','','TPRO','ALLI','',''), 
+  createData('930-10','','TPRO','ALLI','',''),
+  createData('1000-1030','MMIN',' ','PIMB','','ARSW'),
+  createData('1030-1100','MMIN','','PIMB','','ARSW'),
+  createData('1100-1130','MMIN','','PIMB','','ARSW'),
+  createData('1130-1200','MMIN','IETI','','','ARSW'),
+  createData('1200-1230','MMIN','IETI','','','ARSW'),
+  createData('1230-1000','MMIN','IETI','','','ARSW'),
+  createData('1000-1300','','IETI','','','CALD'),
+  createData('1300-1330','','IETI','','','CALD'),
+  createData('1330-1400','','IETI','','','CALD'),
+  createData('1400-1430','','IETI','','','CALD'),
+  createData('1430-1500','','CALD','','',''),
+  createData('1500-1530','','CALD'),
+  createData('1530-1600','','CALD'),
+  createData('1600-1630','','','','',''),
+  createData('1630-1700','','','','',''),
+  createData('1700-1730','','','','',''),
+  createData('1730-1800','','','','',''),
+  createData('1800-1830','','','','',''),
+  createData('1830-1900','','','','',''),
+  
 ]
+
 
 export default function SemesterGrades() {
   const classes = useStyles();
@@ -93,12 +99,15 @@ export default function SemesterGrades() {
           {rows.map(row => (
             <TableRow key={row.subject}>
               <TableCell component="th" scope="row">
-                {row.subject}
+              {row.subject}
               </TableCell>
-              <TableCell align="right">{row.firstTerm}</TableCell>
-              <TableCell align="right">{row.secondTerm}</TableCell>
-              <TableCell align="right">{row.thirdTerm}</TableCell>
-              <TableCell align="right">{row.total}</TableCell>
+               <TableCell align="right">{row.lunes}</TableCell>
+              <TableCell align="right">{row.martes}</TableCell>
+              <TableCell align="right">{row.miercoles}</TableCell>
+              <TableCell align="right">{row.jueves}</TableCell>
+              <TableCell align="right">{row.viernes}</TableCell>
+              <TableCell align="right">{row.sabado}</TableCell>
+              <TableCell align="right">{row.domingo}</TableCell>
             </TableRow>
           ))}
         </TableBody>
