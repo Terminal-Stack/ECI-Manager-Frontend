@@ -73,7 +73,26 @@ const useStyles = makeStyles(theme => ({
 
 const steps = ['Información pago', 'Detalles de pago', 'Resumen pago'];
 
+const verificar = function valid_credit_card(value) {
+  // Accept only digits, dashes or spaces
+  if (/[^0-9-\s]+/.test(value)) return false;
 
+  // The Luhn Algorithm. It's so pretty.
+  let nCheck = 0, bEven = false;
+  value = value.replace(/\D/g, "");
+
+  for (var n = value.length - 1; n >= 0; n--) {
+    var cDigit = value.charAt(n),
+        nDigit = parseInt(cDigit, 10);
+
+    if (bEven && (nDigit *= 2) > 9) nDigit -= 9;
+
+    nCheck += nDigit;
+    bEven = !bEven;
+  }
+
+  return (nCheck % 10) == 0;
+}
 
 
 export default function Checkout() {
@@ -175,10 +194,38 @@ export default function Checkout() {
 
   var flag = 1;
   const handleNext = () => {
-    setActiveStep(activeStep + 1);
-    if (activeStep ===2){
-      postInvoic()
+    try {
+      if (activeStep === 2) {
+        postInvoic()
+        setActiveStep(activeStep + 1);
+      } else if (activeStep === 1) {
+        var isFormat = /^\d{4}-\d{2}/.test(cardExpiry)
+        if (verificar(cardNumber) & cardCVV.length === 3 & isFormat & cardHolder !== '') {
+          setActiveStep(activeStep + 1);
+        } else {
+          alert("Datos de Tarjeta invalidos")
+        }
+      } else if (activeStep === 0) {
+        if(product !== '' & product !=='Seleccione el pago que realizará'){
+          if(cardHolder != ''){
+            setActiveStep(activeStep + 1);
+          }
+          else{
+            alert("Llene todos los datos")
+          }
+        }
+        else{
+          alert("Seleccione un producto")
+        }
+
+      }
+      else {
+        setActiveStep(activeStep + 1);
+      }
+    }catch(e){
+      alert("Ingrese los datos completos")
     }
+
   };
 
   const handleBack = () => {
