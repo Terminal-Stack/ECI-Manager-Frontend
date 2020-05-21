@@ -49,11 +49,11 @@ export default function PaymentForm(prop) {
           <TextField required id="cardName" label="Nombre propietario (en la tarjeta)" fullWidth onChange={handleChangeNP}/>
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardNumber" label="Numero de tarjeta" fullWidth onChange={handleChangeCN}/>
-          {valid_credit_card()}
+          <TextField required id="cardNumber" label="Numero de tarjeta" fullWidth onChange={handleChangeCN}
+                     inputProps={{ maxLength: 16 }}></TextField>
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Fecha de expiración" fullWidth onChange={handleChangeF}/>
+          <TextField required id="expDate" label="Fecha de expiración (AAAA-MM)" fullWidth onChange={handleChangeF} inputProps={{ maxLength: 7 }}/>
 
         </Grid>
         <Grid item xs={12} md={6}>
@@ -61,6 +61,7 @@ export default function PaymentForm(prop) {
             required
             id="cvv"
             label="CVV"
+            inputProps={{ maxLength: 3 }}
             onChange={handleChangeCVV}
             helperText="Ultimos tres digitos detras de la tarjeta"
             fullWidth
