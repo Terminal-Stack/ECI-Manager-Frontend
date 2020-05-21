@@ -18,6 +18,7 @@ import AuthenticationService from "../_services/AuthenticationService";
 import GradesDataService from "../_services/GradesDataService";
 import PenaltyDataService from "../_services/PenaltyDataService";
 import InvoiceDataServices from "../_services/InvoiceDataService";
+import CertificadosService from "../_services/CertificadosService";
 
 
 function Copyright() {
@@ -85,6 +86,7 @@ export default function Checkout() {
   const [price, setPrice] = useState(0);
   const [carnet, setCarnet] = useState(0);
   const [multa, setMulta] = useState(0);
+  const [certificado, setCertificado] = useState(0);
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -93,7 +95,6 @@ export default function Checkout() {
 
   const matricula = function (){
     TuitionsDataService.retrieveTuition(carnet).then(response => {
-      console.log("tuition " + JSON.stringify(response));
       setPrice(response.data.value);
     })
         .catch(error => console.log("Error retrieving pays " + error));
@@ -101,9 +102,13 @@ export default function Checkout() {
   const penalty = function (){
     setPrice(multa)
   }
+  const certificacion = function(){
+      CertificadosService.retrieveCertificado().then(response => {
+      setPrice(response.data.price);
+  })}
   //Hay que hacer el del certificado y el de las multas
   useEffect(() => {
-    GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
+      GradesDataService.retrieveStudent(AuthenticationService.getLoggedInUserName()).then(responseu =>{
       setCarnet(responseu.data.collegeId);
       setMulta(responseu.data.penalty)
       //If en el que llame una funcion dependiendo del valor escogido
@@ -112,9 +117,10 @@ export default function Checkout() {
       }
       else if(product === "Multa biblioteca"){
         penalty()
+        PenaltyDataService.payPenalty(carnet)
       }
       else if(product === "Certificaciones"){
-        console.info("3 ")
+        certificacion()
       }
       else{
         setPrice(0)
@@ -126,7 +132,7 @@ export default function Checkout() {
     InvoiceDataServices.postInvoice(e)
   }
   function postInvoic(){
-    alert("Entraa")
+
     var invoice = {
       "id" : null,
       "value": null,
@@ -139,8 +145,9 @@ export default function Checkout() {
     invoice.studentId=carnet
     invoice.description="Pago de "+product
     invoice.date = date
-
+    console.log("invoice :"+ invoice)
     createInvoice(invoice)
+
   }
   const func =  function getStepContent(step) {
     switch (step) {
