@@ -145,7 +145,7 @@ export default function Checkout() {
     invoice.studentId=carnet
     invoice.description="Pago de "+product
     invoice.date = date
-    console.log("invoice :"+ invoice)
+
     createInvoice(invoice)
 
   }
@@ -176,11 +176,9 @@ export default function Checkout() {
   var flag = 1;
   const handleNext = () => {
     setActiveStep(activeStep + 1);
-    if (flag ===1){
+    if (activeStep ===2){
       postInvoic()
-      flag = 0
     }
-    else{}
   };
 
   const handleBack = () => {
