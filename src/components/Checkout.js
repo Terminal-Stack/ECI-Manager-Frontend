@@ -199,23 +199,30 @@ export default function Checkout() {
         postInvoic()
         setActiveStep(activeStep + 1);
       } else if (activeStep === 1) {
-        var isFormat = /^\d{4}-\d{2}/.test(cardExpiry)
-        if (verificar(cardNumber) & cardCVV.length === 3 & isFormat & cardHolder !== '') {
-          setActiveStep(activeStep + 1);
-        } else {
-          alert("Datos de Tarjeta invalidos")
-        }
-      } else if (activeStep === 0) {
-        if(product !== '' & product !=='Seleccione el pago que realizará'){
-          if(owner != ''){
+
+          var isFormat = /^\d{4}-\d{2}/.test(cardExpiry)
+          if (verificar(cardNumber) & cardCVV.length === 3 & isFormat & cardHolder !== '') {
             setActiveStep(activeStep + 1);
+          } else {
+            alert("Datos de Tarjeta invalidos")
           }
-          else{
-            alert("Llene todos los datos")
+
+
+      } else if (activeStep === 0) {
+        if(product !== '' & product !=='Seleccione el pago que realizará') {
+          if (product === "Multa biblioteca" & price != 0) {
+            if (owner != '') {
+              setActiveStep(activeStep + 1);
+            } else {
+              alert("Llene todos los datos")
+            }
+          } else {
+            alert("Usted no tiene multas")
+            setActiveStep(activeStep - 1);
           }
         }
-        else{
-          alert("Seleccione un producto")
+        else {
+          alert("Seleccione un producto a pagar")
         }
 
       }
