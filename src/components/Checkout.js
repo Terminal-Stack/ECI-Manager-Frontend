@@ -218,7 +218,7 @@ export default function Checkout() {
             }
           } else {
             alert("Usted no tiene multas")
-            setActiveStep(activeStep - 1);
+            
           }
         }
         else {
