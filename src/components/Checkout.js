@@ -207,7 +207,7 @@ export default function Checkout() {
         }
       } else if (activeStep === 0) {
         if(product !== '' & product !=='Seleccione el pago que realizará'){
-          if(cardHolder != ''){
+          if(owner != ''){
             setActiveStep(activeStep + 1);
           }
           else{
